@@ -21,6 +21,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnAltaUsuario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         btnHistorial = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         btnModificarContrasenia = new javax.swing.JMenuItem();
@@ -28,8 +29,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Generador Contraseñas");
-        setMaximumSize(new java.awt.Dimension(2100000000, 2100000000));
-        setPreferredSize(new java.awt.Dimension(1000, 500));
 
         javax.swing.GroupLayout dskPanelLayout = new javax.swing.GroupLayout(dskPanel);
         dskPanel.setLayout(dskPanelLayout);
@@ -51,6 +50,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(btnAltaUsuario);
+
+        jMenuItem1.setText("Baja Usuario");
+        jMenu1.add(jMenuItem1);
 
         btnHistorial.setText("Historial");
         btnHistorial.addActionListener(new java.awt.event.ActionListener() {
@@ -158,5 +160,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

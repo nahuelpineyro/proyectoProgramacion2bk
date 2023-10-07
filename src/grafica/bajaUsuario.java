@@ -9,12 +9,19 @@ package grafica;
  * @author nahue
  */
 public class bajaUsuario extends javax.swing.JFrame {
-
+    private static bajaUsuario instancia;
     /**
      * Creates new form bajaUsuario
      */
     public bajaUsuario() {
         initComponents();
+    }
+    
+    public static bajaUsuario getInstanciaBAJA(){
+        if(instancia==null){
+            instancia = new bajaUsuario();
+        }
+        return instancia;
     }
 
     /**
@@ -54,6 +61,11 @@ public class bajaUsuario extends javax.swing.JFrame {
         btnEliminar.setText("Ingresar");
 
         btnVolverBaja.setText("Volver");
+        btnVolverBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverBajaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,6 +129,14 @@ public class bajaUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverBajaActionPerformed
+       FrmPrincipal f = FrmPrincipal.getInstancia();
+        
+        
+       f.show();
+       dispose();
+    }//GEN-LAST:event_btnVolverBajaActionPerformed
 
     /**
      * @param args the command line arguments

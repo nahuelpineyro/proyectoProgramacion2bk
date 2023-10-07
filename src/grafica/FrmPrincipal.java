@@ -4,6 +4,7 @@ import logica.LstUsuarios;
 //import persistencia.Archivo;
 
 public class FrmPrincipal extends javax.swing.JFrame {
+    private static FrmPrincipal instancia;
     public static LstUsuarios coleccion;
     public FrmPrincipal() {
         initComponents();
@@ -12,7 +13,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // Aplicación de archivo (comentar anterior y descomentar abajo)
         // coleccion = Archivo.getInstancia().usuariosRegistrados();
     }
-
+    
+    public static FrmPrincipal getInstancia(){
+        if(instancia==null){
+            instancia = new FrmPrincipal();
+        }
+        return instancia;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -52,6 +60,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(btnAltaUsuario);
 
         jMenuItem1.setText("Baja Usuario");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         btnHistorial.setText("Historial");
@@ -101,20 +114,44 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAltaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaUsuarioActionPerformed
+       altaUsuario a = altaUsuario.getInstanciaALTA();
         
+        
+       a.show();
+       dispose();   
     }//GEN-LAST:event_btnAltaUsuarioActionPerformed
 
     private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
+       historial h = historial.getInstanciaHIS();
         
+        
+       h.show();
+       dispose();
     }//GEN-LAST:event_btnHistorialActionPerformed
 
     private void btnModificarContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarContraseniaActionPerformed
+       modificarContraseña m = modificarContraseña.getInstanciaMC();
         
+        
+       m.show();
+       dispose();
     }//GEN-LAST:event_btnModificarContraseniaActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+       iniciarSesion i = iniciarSesion.getInstanciaIS();
         
+        
+       i.show();
+       dispose();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       bajaUsuario b = bajaUsuario.getInstanciaBAJA();
+        
+        
+       b.show();
+       dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

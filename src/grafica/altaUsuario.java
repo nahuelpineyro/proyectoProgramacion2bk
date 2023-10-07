@@ -3,13 +3,18 @@ package grafica;
 
 
 public class altaUsuario extends javax.swing.JFrame {
-
+    private static altaUsuario instancia;
     
     public altaUsuario() {
         initComponents();
     }
-
     
+    public static altaUsuario getInstanciaALTA(){
+        if(instancia==null){
+            instancia = new altaUsuario();
+        }
+        return instancia;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,8 +43,18 @@ public class altaUsuario extends javax.swing.JFrame {
         jLabel4.setText("Su Contraseña");
 
         btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         btnVolverAlta.setText("Volver");
+        btnVolverAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverAltaActionPerformed(evt);
+            }
+        });
 
         txtusername.setText("Su Nombre de usuario");
 
@@ -105,6 +120,18 @@ public class altaUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void btnVolverAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAltaActionPerformed
+       FrmPrincipal f = FrmPrincipal.getInstancia();
+        
+        
+       f.show();
+       dispose();
+    }//GEN-LAST:event_btnVolverAltaActionPerformed
 
     
     public static void main(String args[]) {

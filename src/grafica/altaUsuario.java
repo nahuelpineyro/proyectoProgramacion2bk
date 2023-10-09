@@ -1,9 +1,12 @@
 
 package grafica;
 
+import logica.Pass;
+
 
 public class altaUsuario extends javax.swing.JFrame {
     private static altaUsuario instancia;
+    String Ingreso;
     
     public altaUsuario() {
         initComponents();
@@ -15,6 +18,9 @@ public class altaUsuario extends javax.swing.JFrame {
         }
         return instancia;
     }
+    
+    Pass P = new Pass();
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -122,7 +128,7 @@ public class altaUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        // TODO add your handling code here:
+        txtContraseñaAlta.setText(P.Gen());
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnVolverAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAltaActionPerformed

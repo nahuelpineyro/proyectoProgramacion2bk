@@ -9,10 +9,30 @@ public class LstInicioSesiones extends Historial {
         this.intentos = 0;
     }
     
-    /* 
-    En esta clase las operaciones específicas (si las hay)
-    de la lista de inicio de sesión
-    */
+    /*public void Habil(){
+        
+        String Contraseña;
+        int Cont=0;
+        
+        while (true){
+            System.out.println("Inicio de secion");
+            Cont++;
+            
+        if (Cont<=3 && Entrada.equals(test)){
+            habilitado=true;
+            System.out.println("Inicio logrado");
+            Cont=0;
+        }
+        if (Cont<=3 && !Entrada.equals(test)){
+            habilitado=true;
+            System.out.println("No se inicio secion");
+            
+        }
+        if (Cont>3){
+            habilitado=false;
+            System.out.println("Blockeado");
+        }
+    }*/
     
     
 //***************************************************************************    

@@ -151,9 +151,12 @@ public class historial extends javax.swing.JFrame {
     private void txtHistoriallInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHistoriallInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHistoriallInputActionPerformed
-
+    
+    
+    
+    
     private void btnBuscarHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHistorialActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnBuscarHistorialActionPerformed
 
     private void btnVolverHISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverHISActionPerformed

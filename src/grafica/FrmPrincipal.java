@@ -1,5 +1,6 @@
 package grafica;
 import logica.LstUsuarios;
+import persistencia.Archivo;
 
 //import persistencia.Archivo;
 
@@ -11,8 +12,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // Sin aplicar archivos
         coleccion = new LstUsuarios(); 
         // Aplicación de archivo (comentar anterior y descomentar abajo)
-        // coleccion = Archivo.getInstancia().usuariosRegistrados();
+        //coleccion = Archivo.getInstancia().usuariosRegistrados();
     }
+    
     
     public static FrmPrincipal getInstancia(){
         if(instancia==null){
@@ -29,7 +31,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnAltaUsuario = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        btnBajaUsuario = new javax.swing.JMenuItem();
         btnHistorial = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         btnModificarContrasenia = new javax.swing.JMenuItem();
@@ -59,13 +61,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(btnAltaUsuario);
 
-        jMenuItem1.setText("Baja Usuario");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        btnBajaUsuario.setText("Baja Usuario");
+        btnBajaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                btnBajaUsuarioActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(btnBajaUsuario);
 
         btnHistorial.setText("Historial");
         btnHistorial.addActionListener(new java.awt.event.ActionListener() {
@@ -115,15 +117,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnAltaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaUsuarioActionPerformed
        altaUsuario a = altaUsuario.getInstanciaALTA();
-        
-        
+       
        a.show();
        dispose();   
     }//GEN-LAST:event_btnAltaUsuarioActionPerformed
 
     private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
        historial h = historial.getInstanciaHIS();
-        
         
        h.show();
        dispose();
@@ -145,13 +145,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
        dispose();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void btnBajaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaUsuarioActionPerformed
        bajaUsuario b = bajaUsuario.getInstanciaBAJA();
         
         
        b.show();
        dispose();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_btnBajaUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,6 +190,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnAltaUsuario;
+    private javax.swing.JMenuItem btnBajaUsuario;
     private javax.swing.JMenuItem btnHistorial;
     private javax.swing.JMenuItem btnIniciarSesion;
     private javax.swing.JMenuItem btnModificarContrasenia;
@@ -197,6 +198,5 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

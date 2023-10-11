@@ -4,6 +4,10 @@
  */
 package grafica;
 
+import logica.Pass;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
 /**
  *
  * @author nahue
@@ -16,7 +20,33 @@ public class modificarContraseña extends javax.swing.JFrame {
      */
     public modificarContraseña() {
         initComponents();
-    }
+        
+        txtNewPwdMC.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                 Pass p = new Pass();
+                 p.setContrasenia(txtNewPwdMC.getText());
+                 txtNivelContraseña.setText(p.Politica());
+
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                 Pass p = new Pass();
+                 p.setContrasenia(txtNewPwdMC.getText());
+                 txtNivelContraseña.setText(p.Politica());
+                
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                
+
+            }
+        });
+
+     }
+    
     
     public static modificarContraseña getInstanciaMC(){
         if(instancia==null){
@@ -91,18 +121,17 @@ public class modificarContraseña extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(btnModificar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnVolverMC))
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtOldPwdMC)
-                        .addComponent(txtNewPwdMC2, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                        .addComponent(txtNewPwdMC)
-                        .addComponent(txtNomUsuarioMC))
-                    .addComponent(txtNivelContraseña))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnModificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVolverMC))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOldPwdMC)
+                    .addComponent(txtNewPwdMC2, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                    .addComponent(txtNewPwdMC)
+                    .addComponent(txtNomUsuarioMC)
+                    .addComponent(txtNivelContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -127,9 +156,9 @@ public class modificarContraseña extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtNewPwdMC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtNivelContraseña))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNivelContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVolverMC)

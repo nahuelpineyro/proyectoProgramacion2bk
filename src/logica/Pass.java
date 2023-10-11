@@ -49,6 +49,10 @@ public class Pass implements Serializable{
                 
                 return contrasenia;
     }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
     
     public String Politica (){
         int NivelSec=contrasenia.length();

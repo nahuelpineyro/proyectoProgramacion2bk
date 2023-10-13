@@ -9,30 +9,34 @@ public class LstInicioSesiones extends Historial {
         this.intentos = 0;
     }
     
-    /*public void Habil(){
+    public String Habil(String Entrada){
         
-        String Contraseña;
-        int Cont=0;
+        //String Contraseña;
+        String test="Abc123";
+        String Habil_Salida="";
         
         while (true){
-            System.out.println("Inicio de secion");
-            Cont++;
+            this.intentos++;
             
-        if (Cont<=3 && Entrada.equals(test)){
+        if (intentos<=3 && Entrada.equals(test)){
             habilitado=true;
-            System.out.println("Inicio logrado");
-            Cont=0;
+            Habil_Salida="Inicio logrado";
+            this.intentos=0;
         }
-        if (Cont<=3 && !Entrada.equals(test)){
+        if (intentos<=3 && !Entrada.equals(test)){
             habilitado=true;
-            System.out.println("No se inicio secion");
+            Habil_Salida="No se inicio secion";
+            System.out.println(this.intentos);
             
         }
-        if (Cont>3){
+        if (intentos>3){
             habilitado=false;
-            System.out.println("Blockeado");
+            Habil_Salida="Blockeado";
+            System.out.println(this.intentos);
         }
-    }*/
+        return Habil_Salida;
+    }
+    }
     
     
 //***************************************************************************    

@@ -12,7 +12,7 @@ public class LstInicioSesiones extends Historial {
     public String Habil(String Entrada){
         
         //String Contraseña;
-        String test="Abc123";
+        String test="Abc123";  // Solo testing, una vez posible el login cambiar por la contraseña "pass" ** "test" camibar en las lineas de abajo .
         String Habil_Salida="";
         
         while (true){

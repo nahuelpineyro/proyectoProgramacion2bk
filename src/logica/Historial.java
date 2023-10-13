@@ -5,9 +5,13 @@ import java.util.ArrayList;
 
 public class Historial implements Serializable{
     private ArrayList<Pass> lista;
+    private int Intentos=0;
+    
+    
     
     public Historial(){
         lista = new ArrayList<>();
+        this.Intentos = 0;
     }
 
     /* 
@@ -17,6 +21,10 @@ public class Historial implements Serializable{
     */
     
     /* Métodos primitivos */
+    
+    /*public void Cont (){
+        this.Intentos++;
+    }                           */ //Capas que metodo util, IDK en este momento, queda por las dudas
     
     
     /* Métodos específicos */

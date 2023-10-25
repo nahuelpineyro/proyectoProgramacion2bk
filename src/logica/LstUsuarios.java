@@ -22,7 +22,8 @@ public class LstUsuarios implements Serializable {
         lista.remove(i);
     }
     public int cantidad() {
-        return lista.size();
+        int cantidad = lista.size() - 1;
+        return cantidad;
     }
     public Usuario devolver(int i) {
         return lista.get(i);

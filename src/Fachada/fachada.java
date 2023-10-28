@@ -29,7 +29,7 @@ public class fachada {
         String lastname = apellido;
         String username = name.charAt(0) + lastname;
         username = this.username;
-        if(comprobacion() == true){
+        if(comprobacion() == false){
             Archivo.getInstancia().registrarUsuario(lst);
         }else{
             System.out.println("El usuario ya existe");

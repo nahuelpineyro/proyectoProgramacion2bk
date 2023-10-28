@@ -2,6 +2,7 @@ package logica;
 
 import java.io.Serializable;
 import java.util.Random;
+import Fachada.fachada;
 
 public class Pass implements Serializable{
     private Instante instante;  //Genera la fecha y hora al generarese
@@ -13,8 +14,12 @@ public class Pass implements Serializable{
         instante = new Instante();
     }
     
+    fachada facha = new fachada();
     //Genrador de constraseña random
     public String Gen (){
+        
+        if (facha.comprobacion()==false){
+        
         Random r = new Random();
         int cont=1;
         String contrasenia="";
@@ -48,6 +53,8 @@ public class Pass implements Serializable{
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
                 return contrasenia;
+        }
+        else{ return null;}
     }
 
     public void setContrasenia(String contrasenia) {

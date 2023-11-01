@@ -128,9 +128,15 @@ public class altaUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        txtContraseñaAlta.setText(P.Gen());
+
         txtNombreUsuarioAlta.setText(fachada.createUsername(txtNombreAlta.getText(),txtApellidoAlta.getText()));
+        if (fachada.comprobacion(txtNombreUsuarioAlta.getText())){
+            txtContraseñaAlta.setText("");
+        }else{
+            txtContraseñaAlta.setText(P.Gen());   
+        }
         
+     
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnVolverAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverAltaActionPerformed

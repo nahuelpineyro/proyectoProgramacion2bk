@@ -3,6 +3,8 @@ package logica;
 import java.io.Serializable;
 import java.util.Random;
 import Fachada.fachada;
+import logica.Usuario;
+import persistencia.Archivo;
 
 public class Pass implements Serializable{
     private Instante instante;  //Genera la fecha y hora al generarese
@@ -15,11 +17,14 @@ public class Pass implements Serializable{
     }
     
     fachada facha = new fachada();
-    //Genrador de constraseña random
+    Usuario usr = new Usuario();
+    LstUsuarios lst = new LstUsuarios();
+    
+    
+
     public String Gen (){
         
-        
-        
+            
         Random r = new Random();
         int cont=1;
         String contrasenia="";
@@ -52,10 +57,14 @@ public class Pass implements Serializable{
                 Sp=Character.toUpperCase(Sp);
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
+                this.setContrasenia(contrasenia);
+                
+                
                 return contrasenia;
+
+        }
         
-        
-    }
+    
 
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
@@ -72,7 +81,6 @@ public class Pass implements Serializable{
                     
                     char Ch = contrasenia.charAt(c);
                     
-                    System.out.println(Ch);
                     if (Ch >= ':' && Ch <= '@'){
                         NivelMultiplo++;
                     }

@@ -18,6 +18,10 @@ public class fachada {
         return instancia;
 
     }
+    
+    
+    
+    
     LstUsuarios lst = new LstUsuarios();
     String username;
 
@@ -31,12 +35,11 @@ public class fachada {
         u.setId(username);
 
         if (comprobacion(u.getId())) {
-            System.out.println("usuario agregado");
             lst.agregar(u);
             Archivo.getInstancia().registrarUsuario(lst);
             return username;
         } else {
-            String mensaje = "El usuario ya existe";
+            String mensaje = "El usuario "+username+" ya existe";
             return mensaje;
         }
         

@@ -32,7 +32,9 @@ public class Usuario implements Serializable{
     /* 
     Operaciones específicas sobre el usuario que implica:
     - La lista de inicio de sesión de un usuario en concreto
+    
     - La lista de cambio de contraseñas de un usuario en concreto
+    
     */
 
     @Override

@@ -47,7 +47,7 @@ public class fachada {
 
     }
 
-    public boolean comprobacion(String id) {
+    public boolean comprobacion(String id){
         if (lst.sinRegistros()) {
             return true;
         }
@@ -55,11 +55,16 @@ public class fachada {
 
         for (int i = 0; i <= lst.cantidad(); i++) {
             if (lst.devolver(i).getId().equals(id)) {
-
+                 
                 return false;
             }
 
         }
         return true;
     }
-}
+    
+    
+        
+    }
+    
+

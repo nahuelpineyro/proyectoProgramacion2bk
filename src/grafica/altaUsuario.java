@@ -133,7 +133,7 @@ public class altaUsuario extends javax.swing.JFrame {
         if (fachada.comprobacion(txtNombreUsuarioAlta.getText())){
             txtContraseñaAlta.setText("");
         }else{
-            txtContraseñaAlta.setText(P.Gen());   
+            txtContraseñaAlta.setText(P.Gen());
         }
         
      

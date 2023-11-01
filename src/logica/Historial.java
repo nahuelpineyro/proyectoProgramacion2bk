@@ -25,6 +25,8 @@ public class Historial implements Serializable{
     /*public void Cont (){
         this.Intentos++;
     }                           */ //Capas que metodo util, IDK en este momento, queda por las dudas
+
+    
     
     
     /* Métodos específicos */

@@ -115,7 +115,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnAltaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaUsuarioActionPerformed
        altaUsuario a = altaUsuario.getInstanciaALTA();
-        
+       
         
        a.show();
        dispose();   

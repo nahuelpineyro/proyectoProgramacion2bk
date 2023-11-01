@@ -18,7 +18,7 @@ public class Pass implements Serializable{
     //Genrador de constraseña random
     public String Gen (){
         
-        if (facha.comprobacion()==false){
+        
         
         Random r = new Random();
         int cont=1;
@@ -53,8 +53,8 @@ public class Pass implements Serializable{
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
                 return contrasenia;
-        }
-        else{ return null;}
+        
+        
     }
 
     public void setContrasenia(String contrasenia) {

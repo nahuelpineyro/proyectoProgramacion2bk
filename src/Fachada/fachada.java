@@ -6,7 +6,7 @@ import grafica.altaUsuario;
 import persistencia.Archivo;
 
 public class fachada {
-        
+
     private static fachada instancia;
 
     public static fachada getInstanciaFachada() {
@@ -19,7 +19,7 @@ public class fachada {
 
     }
     LstUsuarios lst = new LstUsuarios();
-    public String username;
+    String username;
 
     public String createUsername(String nombre, String apellido) {
         lst = Archivo.getInstancia().usuariosRegistrados();
@@ -28,27 +28,35 @@ public class fachada {
         String name = nombre;
         String lastname = apellido;
         String username = name.charAt(0) + lastname;
-        this.username = username;
-        if(this.comprobacion() == true){
+        u.setId(username);
+
+        if (comprobacion(u.getId())) {
+            System.out.println("usuario agregado");
+            lst.agregar(u);
             Archivo.getInstancia().registrarUsuario(lst);
-        }else{
-            System.out.println("El usuario "+username+" ya existe comprobacion");
+            return username;
+        } else {
+            String mensaje = "El usuario ya existe";
+            return mensaje;
         }
-        return username;
+        
+        
 
     }
 
-    public Boolean comprobacion() {
-        for (int i = 0; i < lst.cantidad(); i++) {
-            //System.out.println(lst.toString());
-            //System.out.println(lst.cantidad());
-            if (lst.devolver(i).getId().equals(username)) {
-                System.out.println(lst.devolver(i).toString());
-                System.out.println("true test");
-                return true;
+    public boolean comprobacion(String id) {
+        if (lst.sinRegistros()) {
+            return true;
+        }
+        
+
+        for (int i = 0; i <= lst.cantidad(); i++) {
+            if (lst.devolver(i).getId().equals(id)) {
+
+                return false;
             }
 
         }
-    return false;
+        return true;
     }
 }

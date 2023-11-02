@@ -3,8 +3,7 @@ package logica;
 import java.io.Serializable;
 import java.util.Random;
 import Fachada.fachada;
-import logica.Usuario;
-import persistencia.Archivo;
+import logica.Historial;
 
 public class Pass implements Serializable{
     private Instante instante;  //Genera la fecha y hora al generarese
@@ -17,12 +16,10 @@ public class Pass implements Serializable{
     }
     
     fachada facha = new fachada();
-    Usuario usr = new Usuario();
-    LstUsuarios lst = new LstUsuarios();
+    Historial Historia = new Historial();
     
-    
-
-    public String Gen (){
+                                
+    public String Gen (){ //Generador random de contraseña
         
             
         Random r = new Random();
@@ -58,7 +55,7 @@ public class Pass implements Serializable{
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
                 this.setContrasenia(contrasenia);
-                
+                Historia.AddPass(contrasenia);
                 
                 return contrasenia;
         }
@@ -71,7 +68,8 @@ public class Pass implements Serializable{
         this.contrasenia = contrasenia;
     }
     
-    public String Politica (){
+                                
+    public String Politica (){ // Politica del nivel de la  contraseña
         int NivelSec=contrasenia.length();
         int NivelMultiplo=1;
         String Nivel="";

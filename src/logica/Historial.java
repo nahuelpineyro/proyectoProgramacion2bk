@@ -4,20 +4,58 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Historial implements Serializable{
-    private ArrayList<Pass> lista;
-    private int Intentos=0;
+    private ArrayList<String> ArrPass;
+    //private int Intentos=0;
     
+    private static Historial instancia;
+
+    public static Historial getInstanciaFachada() {
+
+        if (instancia == null) {
+            instancia = new Historial();
+        }
+        return instancia;
+    }
     
     
     public Historial(){
-        lista = new ArrayList<>();
-        this.Intentos = 0;
+        ArrPass = new ArrayList<>();
+        //this.Intentos = 0;
     }
 
+    public void AddPass (String Pass){ // Añade la contraseña al array
+        ArrPass.add(Pass);
+    }
+    
+    public String GetLastPass (){ // Regresa la ultima contraseña
+        int tamaño=(ArrPass.size());
+        tamaño--;
+        String Pass=ArrPass.get(tamaño);
+        return Pass;
+    }
+    
+    public String GetAllPass (){ // Regresa TODAS las contraseñas del usr
+        String All="";
+        for (int i=0;i<=ArrPass.size()-1;i++){
+            All=ArrPass.get(i);
+        }
+        return All;
+    }
+    
+    /*
+    public String GetAllPassSout (){ // METODO DE TESTEO
+        String All="";
+        for (int i=0;i<=ArrPass.size()-1;i++){
+            All=ArrPass.get(i);
+            System.out.println(All);
+        }
+        return All;
+    }*/
+    
+    
     /* 
     En esta clase se ubican las operaciones comúnes a:
     - Lista de cambios de contraseña
-    - Lista de inicios de sesión
     */
     
     /* Métodos primitivos */
@@ -34,6 +72,6 @@ public class Historial implements Serializable{
 //***************************************************************************    
     @Override
     public String toString() {
-        return lista.toString();
+        return ArrPass.toString();
     }
 } // Fin

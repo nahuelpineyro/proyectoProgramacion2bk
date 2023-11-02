@@ -4,9 +4,12 @@
  */
 package grafica;
 
+import Fachada.fachada;
+import javax.swing.JOptionPane;
 import logica.Pass;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import logica.Historial;
 
 /**
  *
@@ -21,11 +24,11 @@ public class modificarContraseña extends javax.swing.JFrame {
     public modificarContraseña() {
         initComponents();
         
-        txtNewPwdMC.getDocument().addDocumentListener(new DocumentListener() {
+        txtNewPass.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
                  Pass p = new Pass();
-                 p.setContrasenia(txtNewPwdMC.getText());
+                 p.setContrasenia(txtNewPass.getText());
                  txtNivelContraseña.setText(p.Politica());
 
             }
@@ -33,7 +36,7 @@ public class modificarContraseña extends javax.swing.JFrame {
             @Override
             public void removeUpdate(DocumentEvent e) {
                  Pass p = new Pass();
-                 p.setContrasenia(txtNewPwdMC.getText());
+                 p.setContrasenia(txtNewPass.getText());
                  txtNivelContraseña.setText(p.Politica());
                 
             }
@@ -46,6 +49,9 @@ public class modificarContraseña extends javax.swing.JFrame {
         });
 
      }
+    
+    Historial Historia = new Historial();
+    fachada Facha = new fachada();
     
     
     public static modificarContraseña getInstanciaMC(){
@@ -60,8 +66,8 @@ public class modificarContraseña extends javax.swing.JFrame {
     private void initComponents() {
 
         txtOldPwdMC = new javax.swing.JTextField();
-        txtNewPwdMC2 = new javax.swing.JTextField();
-        txtNewPwdMC = new javax.swing.JTextField();
+        txtNewPassConf = new javax.swing.JTextField();
+        txtNewPass = new javax.swing.JTextField();
         btnVolverMC = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnModificar = new javax.swing.JButton();
@@ -75,9 +81,9 @@ public class modificarContraseña extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtNewPwdMC.addActionListener(new java.awt.event.ActionListener() {
+        txtNewPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNewPwdMCActionPerformed(evt);
+                txtNewPassActionPerformed(evt);
             }
         });
 
@@ -128,8 +134,8 @@ public class modificarContraseña extends javax.swing.JFrame {
                         .addComponent(btnVolverMC))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtOldPwdMC)
-                    .addComponent(txtNewPwdMC2, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                    .addComponent(txtNewPwdMC)
+                    .addComponent(txtNewPassConf, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                    .addComponent(txtNewPass)
                     .addComponent(txtNomUsuarioMC)
                     .addComponent(txtNivelContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -150,11 +156,11 @@ public class modificarContraseña extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtNewPwdMC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtNewPwdMC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewPassConf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -178,12 +184,19 @@ public class modificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMCActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+        if (Facha.PassCheck(txtNewPass.getText(), txtNewPassConf.getText())){
+        Historia.AddPass(txtNewPass.getText());            
+        }else{
+            JOptionPane.showMessageDialog(this, "Las contraseñas nuevas no son iguales");
+        }     
+        
+
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void txtNewPwdMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPwdMCActionPerformed
+    private void txtNewPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPassActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNewPwdMCActionPerformed
+    }//GEN-LAST:event_txtNewPassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,8 +243,8 @@ public class modificarContraseña extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField txtNewPwdMC;
-    private javax.swing.JTextField txtNewPwdMC2;
+    private javax.swing.JTextField txtNewPass;
+    private javax.swing.JTextField txtNewPassConf;
     private javax.swing.JLabel txtNivelContraseña;
     private javax.swing.JTextField txtNomUsuarioMC;
     private javax.swing.JTextField txtOldPwdMC;

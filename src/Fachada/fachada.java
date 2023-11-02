@@ -25,7 +25,7 @@ public class fachada {
     LstUsuarios lst = new LstUsuarios();
     String username;
 
-    public String createUsername(String nombre, String apellido) {
+    public String createUsername(String nombre, String apellido) { // Crea el ID del usuario
         lst = Archivo.getInstancia().usuariosRegistrados();
         altaUsuario.getInstanciaALTA();
         Usuario u = new Usuario();
@@ -47,8 +47,8 @@ public class fachada {
 
     }
 
-    public boolean comprobacion(String id){
-        if (lst.sinRegistros()) {
+    public boolean comprobacion(String id){ // Revisa si el usuario existe
+        if (lst.sinRegistros()) { //True si esta la lista vacia
             return true;
         }
         
@@ -56,14 +56,16 @@ public class fachada {
         for (int i = 0; i <= lst.cantidad(); i++) {
             if (lst.devolver(i).getId().equals(id)) {
                  
-                return false;
+                return false; // False si encuentra un username similar
             }
 
         }
-        return true;
+        return true; // True si noencuentra un username similar
     }
     
-    
+    public boolean PassCheck (String Pass1,String Pass2){
+        return Pass1.equals(Pass2);
+    }
         
     }
     

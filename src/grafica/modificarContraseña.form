@@ -41,8 +41,8 @@
                   </Group>
                   <Component id="jLabel1" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                   <Component id="txtOldPwdMC" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtNewPwdMC2" alignment="0" pref="289" max="32767" attributes="0"/>
-                  <Component id="txtNewPwdMC" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtNewPassConf" alignment="0" pref="289" max="32767" attributes="0"/>
+                  <Component id="txtNewPass" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtNomUsuarioMC" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtNivelContraseña" max="32767" attributes="0"/>
               </Group>
@@ -68,12 +68,12 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNewPwdMC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNewPass" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNewPwdMC2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNewPassConf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -93,11 +93,11 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="txtOldPwdMC">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNewPwdMC2">
+    <Component class="javax.swing.JTextField" name="txtNewPassConf">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNewPwdMC">
+    <Component class="javax.swing.JTextField" name="txtNewPass">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNewPwdMCActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNewPassActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnVolverMC">

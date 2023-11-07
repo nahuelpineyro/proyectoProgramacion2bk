@@ -42,8 +42,19 @@ public class Historial implements Serializable{
         return All;
     }
     
+    
+    
+    public void ChPass (String NewPass){  // Metodo para cambiar la contraseña
+        String OldPass = this.GetLastPass();
+        if (NewPass.equals(OldPass)){
+            //error
+            System.out.println("Test misma pass en ChPass");
+        }else{
+            this.AddPass(NewPass);
+        }
+    }
     /*
-    public String GetAllPassSout (){ // METODO DE TESTEO
+    public String GetAllPassSout (){ // METODO DE TESTEO ( anda )
         String All="";
         for (int i=0;i<=ArrPass.size()-1;i++){
             All=ArrPass.get(i);

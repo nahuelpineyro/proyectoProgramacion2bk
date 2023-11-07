@@ -9,7 +9,7 @@ public class LstInicioSesiones extends Historial {
         this.intentos = 0;
     }
     
-    public String Habil(String Entrada){
+    public String Habil(String Entrada){  // Cuenta los intentos de login
         
         String test="Abc123";  // Solo testing, una vez posible el login cambiar por la contraseña "pass" ** "test" camibar en las lineas de abajo .
         String Habil_Salida="";

@@ -15,7 +15,7 @@ public class Pass implements Serializable{
         instante = new Instante();
     }
     
-    fachada facha = new fachada();
+    fachada facha = fachada.getInstanciaFachada();
     Historial Historia = new Historial();
     
                                 

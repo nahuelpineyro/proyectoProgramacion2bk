@@ -51,7 +51,7 @@ public class modificarContraseña extends javax.swing.JFrame {
      }
     
     Historial Historia = new Historial();
-    fachada Facha = new fachada();
+    fachada Facha = fachada.getInstanciaFachada();
     
     
     public static modificarContraseña getInstanciaMC(){

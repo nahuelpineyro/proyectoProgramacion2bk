@@ -15,10 +15,10 @@ public class LstUsuarios implements Serializable {
     public void agregar(Usuario u) {
         lista.add(u);    
     }
-    public void eliminar(Usuario u) {
+    public void eliminarUser(Usuario u) {
         lista.remove(u);
     }
-    public void eliminar(int i) {
+    public void eliminarIndex(int i) {
         lista.remove(i);
     }
     public int cantidad() {
@@ -27,6 +27,10 @@ public class LstUsuarios implements Serializable {
     }
     public Usuario devolver(int i) {
         return lista.get(i);
+    }
+    
+    public int devolverIndexUsr(String u){
+        return lista.indexOf(u);
     }
     public boolean sinRegistros() {
         return lista.isEmpty();

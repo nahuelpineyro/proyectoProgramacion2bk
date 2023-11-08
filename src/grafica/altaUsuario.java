@@ -20,7 +20,7 @@ public class altaUsuario extends javax.swing.JFrame {
     }
     
     Pass P = new Pass();
-    fachada fachada = new fachada();
+    fachada f = fachada.getInstanciaFachada();
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -129,8 +129,8 @@ public class altaUsuario extends javax.swing.JFrame {
     
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
-        txtNombreUsuarioAlta.setText(fachada.createUsername(txtNombreAlta.getText(),txtApellidoAlta.getText()));
-        if (fachada.comprobacion(txtNombreUsuarioAlta.getText())){
+        txtNombreUsuarioAlta.setText(f.createUsername(txtNombreAlta.getText(),txtApellidoAlta.getText()));
+        if (f.comprobacion(txtNombreUsuarioAlta.getText())){
             txtContraseñaAlta.setText("");
         }else{
             txtContraseñaAlta.setText(P.Gen());

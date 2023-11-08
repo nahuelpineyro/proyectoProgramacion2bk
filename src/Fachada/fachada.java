@@ -9,6 +9,7 @@ public class fachada {
 
     private static fachada instancia;
 
+    private LstUsuarios lst;
     public static fachada getInstanciaFachada() {
 
         if (instancia == null) {
@@ -19,14 +20,17 @@ public class fachada {
 
     }
     
+    private fachada() {
+        LstUsuarios lst = new LstUsuarios();
+        lst = Archivo.getInstancia().usuariosRegistrados();
+    }
     
     
     
-    LstUsuarios lst = new LstUsuarios();
     String username;
 
     public String createUsername(String nombre, String apellido) { // Crea el ID del usuario
-        lst = Archivo.getInstancia().usuariosRegistrados();
+        
         altaUsuario.getInstanciaALTA();
         Usuario u = new Usuario();
         String name = nombre;
@@ -39,34 +43,42 @@ public class fachada {
             Archivo.getInstancia().registrarUsuario(lst);
             return username;
         } else {
-            String mensaje = "El usuario "+username+" ya existe";
+            String mensaje = "El usuario " + username + " ya existe";
             return mensaje;
         }
-        
-        
 
     }
 
-    public boolean comprobacion(String id){ // Revisa si el usuario existe
+    public boolean comprobacion(String id) { // Revisa si el usuario existe
         if (lst.sinRegistros()) { //True si esta la lista vacia
             return true;
         }
-        
 
         for (int i = 0; i <= lst.cantidad(); i++) {
             if (lst.devolver(i).getId().equals(id)) {
-                 
+
                 return false; // False si encuentra un username similar
             }
 
         }
         return true; // True si noencuentra un username similar
     }
-    
-    public boolean PassCheck (String Pass1,String Pass2){
+
+    public boolean PassCheck(String Pass1, String Pass2) {
         return Pass1.equals(Pass2);
     }
+    
+    
+    public String bajaUsuario(String username, String password){
         
+        if(comprobacion(username)){
+            
+            lst.eliminarIndex(lst.devolverIndexUsr(username));
+        }
+        
+        
+        return null;
     }
     
-
+    
+}

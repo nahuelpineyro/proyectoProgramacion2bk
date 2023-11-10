@@ -19,6 +19,7 @@ public class Pass implements Serializable{
     fachada facha = fachada.getInstanciaFachada();
     Historial Historia = new Historial();
     LstCambiosPass LstPass = new LstCambiosPass();
+    Fecha Date = new Fecha();
     
                                 
     public String Gen (){ //Generador random de contraseña
@@ -57,8 +58,8 @@ public class Pass implements Serializable{
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
                 this.setContrasenia(contrasenia);
-                //Historia.AddPass(contrasenia);
                 LstPass.AddPass(contrasenia);
+                LstPass.GetAll(); // testeo, eliminar
                 
                 return contrasenia;
         }

@@ -22,7 +22,7 @@ public class fachada {
     
     private fachada() {
         LstUsuarios lst = new LstUsuarios();
-        lst = Archivo.getInstancia().usuariosRegistrados();
+        this.lst = Archivo.getInstancia().usuariosRegistrados();
     }
     
     
@@ -64,7 +64,7 @@ public class fachada {
         return true; // True si noencuentra un username similar
     }
 
-    public boolean PassCheck(String Pass1, String Pass2) {
+    public boolean PassCheck(String Pass1, String Pass2) { // revisa que las contraseñas sean iguales a la hora de modificar
         return Pass1.equals(Pass2);
     }
     

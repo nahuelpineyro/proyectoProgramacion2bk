@@ -3,6 +3,7 @@ package logica;
 import java.io.Serializable;
 import java.util.ArrayList;
 import logica.LstCambiosPass;
+import grafica.modificarContraseña;
 
 public class Historial implements Serializable{
     private ArrayList<String> ArrPass;
@@ -18,6 +19,7 @@ public class Historial implements Serializable{
     LstCambiosPass LstPass = LstCambiosPass.getInstance();
     Fecha Date = new Fecha();
     
+    
     public Historial(){
         ArrPass = new ArrayList<>();
         //this.Intentos = 0;
@@ -30,12 +32,14 @@ public class Historial implements Serializable{
 
     
     public boolean ChPass (String NewPass){  // Metodo para cambiar la contraseña
+        
+    modificarContraseña.getInstanciaMC();
         String OldPass = LstPass.GetLst();
         if (NewPass.equals(OldPass)){
             return false;
         }else{
             this.AñadirPass(NewPass);
-            LstPass.AddDate(Date.toString());
+           // LstPass.AddDate(Date.toString());
             return true;
         }
     }

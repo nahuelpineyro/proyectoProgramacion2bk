@@ -1,14 +1,15 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class LstCambiosPass{          // extends Historial {  < Genera StackOverflow si se utiliza
+public class LstCambiosPass implements Serializable{          // extends Historial {  < Genera StackOverflow si se utiliza
         private ArrayList<String> listaPass;
-        private ArrayList<String> PassDate;
+       // private ArrayList<String> PassDate;
         private static LstCambiosPass single_instance = null;
         
         
-        public static synchronized LstCambiosPass getInstance()
+        public static LstCambiosPass getInstance()
     {
         if (single_instance == null)
             single_instance = new LstCambiosPass();
@@ -27,10 +28,11 @@ public class LstCambiosPass{          // extends Historial {  < Genera StackOver
      
     public String GetLst() {
         int tamaño=(listaPass.size());
-        tamaño--;
+        //tamaño--;
         String Pass=listaPass.get(tamaño);
         return Pass;
     }
+    
     public String GetAll(){
         String All="";
         for (int i=0;i<=listaPass.size()-1;i++){
@@ -40,7 +42,7 @@ public class LstCambiosPass{          // extends Historial {  < Genera StackOver
         return All;
     }
     
-    public void AddDate (String D){
+ /*   public void AddDate (String D){
         PassDate.add(D);
     }
     public String GetAllDate(){
@@ -50,7 +52,7 @@ public class LstCambiosPass{          // extends Historial {  < Genera StackOver
             System.out.println(Date);
         }
         return Date;
-    }
+    } */
 
 
     @Override

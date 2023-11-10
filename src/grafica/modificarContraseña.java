@@ -10,6 +10,7 @@ import logica.Pass;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import logica.Historial;
+import logica.LstCambiosPass;
 
 /**
  *
@@ -50,9 +51,7 @@ public class modificarContraseña extends javax.swing.JFrame {
 
      }
     
-    Historial Historia = new Historial();
-    fachada Facha = fachada.getInstanciaFachada();
-    
+
     
     public static modificarContraseña getInstanciaMC(){
         if(instancia==null){
@@ -60,6 +59,11 @@ public class modificarContraseña extends javax.swing.JFrame {
         }
         return instancia;
     }
+    
+    Historial Historia = Historial.getInstanciaHistorial();
+    fachada Facha = fachada.getInstanciaFachada();
+    LstCambiosPass LstPass = LstCambiosPass.getInstance();
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -184,6 +188,9 @@ public class modificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMCActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        LstPass.GetAll();
+        //System.out.println(LstPass.GetAllDate());
+        
         if (Historia.ChPass(txtNewPass.getText())){
             System.out.println("test true cambio pass");
         }else{
@@ -195,7 +202,7 @@ public class modificarContraseña extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Las contraseñas nuevas no son iguales");
         }   
-        
+
 
         
     }//GEN-LAST:event_btnModificarActionPerformed

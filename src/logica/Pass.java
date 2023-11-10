@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Random;
 import Fachada.fachada;
 import logica.Historial;
+import logica.LstCambiosPass;
 
 public class Pass implements Serializable{
     private Instante instante;  //Genera la fecha y hora al generarese
@@ -17,6 +18,7 @@ public class Pass implements Serializable{
     
     fachada facha = fachada.getInstanciaFachada();
     Historial Historia = new Historial();
+    LstCambiosPass LstPass = new LstCambiosPass();
     
                                 
     public String Gen (){ //Generador random de contraseña
@@ -55,7 +57,8 @@ public class Pass implements Serializable{
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
                 this.setContrasenia(contrasenia);
-                Historia.AddPass(contrasenia);
+                //Historia.AddPass(contrasenia);
+                LstPass.AddPass(contrasenia);
                 
                 return contrasenia;
         }

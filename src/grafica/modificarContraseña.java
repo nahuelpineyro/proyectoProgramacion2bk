@@ -191,7 +191,7 @@ public class modificarContraseña extends javax.swing.JFrame {
         }
         
         if (Facha.PassCheck(txtNewPass.getText(), txtNewPassConf.getText())){
-        Historia.AddPass(txtNewPass.getText());            
+        Historia.AñadirPass(txtNewPass.getText());            
         }else{
             JOptionPane.showMessageDialog(this, "Las contraseñas nuevas no son iguales");
         }   

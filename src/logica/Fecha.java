@@ -29,6 +29,6 @@ public class Fecha implements Serializable{
     }
     @Override
     public String toString() {
-        return dia() + "/" + mes() + "/" + anio;
+        return " | " + dia() + "/" + mes() + "/" + anio;
     }
 }

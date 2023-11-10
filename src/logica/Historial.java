@@ -6,51 +6,36 @@ import logica.LstCambiosPass;
 
 public class Historial implements Serializable{
     private ArrayList<String> ArrPass;
-    
-    private static Historial instancia;
+    private static Historial single_instance = null;
 
-    public static Historial getInstanciaFachada() {
+    public static Historial getInstanciaHistorial() {
 
-        if (instancia == null) {
-            instancia = new Historial();
+        if (single_instance == null) {
+            single_instance = new Historial();
         }
-        return instancia;
+        return single_instance;
     }
-    LstCambiosPass LstPass = new LstCambiosPass();
+    LstCambiosPass LstPass = LstCambiosPass.getInstance();
+    Fecha Date = new Fecha();
     
     public Historial(){
         ArrPass = new ArrayList<>();
         //this.Intentos = 0;
     }
 
-    public void AddPass (String Pass){ // Añade la contraseña al array
-        ArrPass.add(Pass);
+    public void AñadirPass (String Pass){ // Añade la contraseña al array
+        //ArrPass.add(Pass);
+        LstPass.AddPass(Pass);
     }
-    
-/*    public String GetLastPass (){ // Regresa la ultima contraseña
-        int tamaño=(ArrPass.size());
-        tamaño--;
-        String Pass=ArrPass.get(tamaño);
-        return Pass;
-    } */
-    
-/*    public String GetAllPass (){ // Regresa TODAS las contraseñas del usr
-        String All="";
-        for (int i=0;i<=ArrPass.size()-1;i++){
-            All=ArrPass.get(i);
-        }
-        return All;
-    } */
-    
-    
+
     
     public boolean ChPass (String NewPass){  // Metodo para cambiar la contraseña
         String OldPass = LstPass.GetLst();
         if (NewPass.equals(OldPass)){
-            System.out.println("Test misma pass en ChPass");
             return false;
         }else{
-            this.AddPass(NewPass);
+            this.AñadirPass(NewPass);
+            LstPass.AddDate(Date.toString());
             return true;
         }
     }
@@ -77,7 +62,20 @@ public class Historial implements Serializable{
         this.Intentos++;
     }                           */ //Capas que metodo util, IDK en este momento, queda por las dudas
 
+    /*    public String GetLastPass (){ // Regresa la ultima contraseña
+        int tamaño=(ArrPass.size());
+        tamaño--;
+        String Pass=ArrPass.get(tamaño);
+        return Pass;
+    } */
     
+/*    public String GetAllPass (){ // Regresa TODAS las contraseñas del usr
+        String All="";
+        for (int i=0;i<=ArrPass.size()-1;i++){
+            All=ArrPass.get(i);
+        }
+        return All;
+    } */
     
     
     /* Métodos específicos */

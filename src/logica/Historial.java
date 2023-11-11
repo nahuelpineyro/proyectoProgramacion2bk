@@ -16,7 +16,8 @@ public class Historial implements Serializable{
         }
         return single_instance;
     }
-    LstCambiosPass LstPass = LstCambiosPass.getInstance();
+  //  LstCambiosPass LstPass = LstCambiosPass.getInstance();
+    LstCambiosPass LstPass = new LstCambiosPass();
     Fecha Date = new Fecha();
     
     

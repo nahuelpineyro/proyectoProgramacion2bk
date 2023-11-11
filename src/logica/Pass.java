@@ -57,8 +57,9 @@ public class Pass implements Serializable{
                 Sp=Character.toUpperCase(Sp);
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
-                this.setContrasenia(contrasenia);
+                //this.setContrasenia(contrasenia);
                 LstPass.AddPass(contrasenia);
+                System.out.println("Pass: " + contrasenia);
                 LstPass.GetAll(); // testeo, eliminar
                 
                 return contrasenia;

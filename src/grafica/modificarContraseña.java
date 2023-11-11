@@ -62,7 +62,8 @@ public class modificarContraseña extends javax.swing.JFrame {
     
     Historial Historia = Historial.getInstanciaHistorial();
     fachada Facha = fachada.getInstanciaFachada();
-    LstCambiosPass LstPass = LstCambiosPass.getInstance();
+  //  LstCambiosPass LstPass = LstCambiosPass.getInstance();
+        LstCambiosPass LstPass = new LstCambiosPass();
     
     
     @SuppressWarnings("unchecked")
@@ -188,7 +189,7 @@ public class modificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMCActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        LstPass.GetAll();
+        //LstPass.GetAll();
         //System.out.println(LstPass.GetAllDate());
         
         if (Historia.ChPass(txtNewPass.getText())){

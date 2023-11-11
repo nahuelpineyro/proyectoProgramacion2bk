@@ -9,26 +9,29 @@ public class LstCambiosPass implements Serializable{          // extends Histori
         private static LstCambiosPass single_instance = null;
         
         
-        public static LstCambiosPass getInstance()
+  /*      public static LstCambiosPass getInstance()
     {
         if (single_instance == null)
             single_instance = new LstCambiosPass();
  
         return single_instance;
-    }
+    }*/
         
         
     public LstCambiosPass() {
-    listaPass = new ArrayList<>();
+    this.listaPass = new ArrayList<>();
+    System.out.println(listaPass+"sout lista pass");
+    System.out.println(this.listaPass+"sout this lista pass");
     }
         
     public void AddPass(String P){
          listaPass.add(P);
+        
      }
      
     public String GetLst() {
         int tamaño=(listaPass.size());
-        //tamaño--;
+        tamaño--;
         String Pass=listaPass.get(tamaño);
         return Pass;
     }

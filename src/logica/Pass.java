@@ -17,15 +17,14 @@ public class Pass implements Serializable{
     }
     
     fachada facha = fachada.getInstanciaFachada();
-    Historial Historia = new Historial();
-    LstCambiosPass LstPass = new LstCambiosPass();
     Fecha Date = new Fecha();
     
                                 
     public String Gen (){ //Generador random de contraseña
         
-            
+        Historial Historia = new Historial();    
         Random r = new Random();
+        
         int cont=1;
         String contrasenia="";
         int x = (int)(Math.random()*(8-5))+5;

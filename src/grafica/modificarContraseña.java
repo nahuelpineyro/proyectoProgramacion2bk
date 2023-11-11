@@ -192,19 +192,14 @@ public class modificarContraseña extends javax.swing.JFrame {
 
         
         
-        if (Historia.ChPass(txtNewPass.getText())){
+        if (Historia.ChPass(txtNewPass.getText()) && Facha.PassCheck(txtNewPass.getText(), txtNewPassConf.getText())){
             System.out.println("test true cambio pass");
         }else{
-            JOptionPane.showMessageDialog(this,"La contraseña es igual a la anterior");
+            JOptionPane.showMessageDialog(this,"Error, revise los datos");
         }
         
-        if (Facha.PassCheck(txtNewPass.getText(), txtNewPassConf.getText())){
-        Historia.AñadirPass(txtNewPass.getText());            
-        }else{
-            JOptionPane.showMessageDialog(this, "Las contraseñas nuevas no son iguales");
-        }   
 
-
+//         txtNewPass.getText()   txtNewPassConf.getText()
         
     }//GEN-LAST:event_btnModificarActionPerformed
 

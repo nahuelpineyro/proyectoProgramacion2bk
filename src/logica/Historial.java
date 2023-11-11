@@ -2,11 +2,11 @@ package logica;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import logica.LstCambiosPass;
 import grafica.modificarContraseña;
 
 public class Historial implements Serializable{
     private ArrayList<String> ArrPass;
+    private String HstPass;
     private static Historial single_instance = null;
 
     public static Historial getInstanciaHistorial() {
@@ -16,74 +16,45 @@ public class Historial implements Serializable{
         }
         return single_instance;
     }
-  //  LstCambiosPass LstPass = LstCambiosPass.getInstance();
-    LstCambiosPass LstPass = new LstCambiosPass();
     Fecha Date = new Fecha();
     
     
     public Historial(){
         ArrPass = new ArrayList<>();
-        //this.Intentos = 0;
+        String HstPass = this.HstPass;
     }
 
     public void AñadirPass (String Pass){ // Añade la contraseña al array
-        //ArrPass.add(Pass);
-        LstPass.AddPass(Pass);
+        ArrPass.add(Pass);
+        System.out.println("Se ejecuta AñadirPass (Historial)");
     }
 
     
     public boolean ChPass (String NewPass){  // Metodo para cambiar la contraseña
-        
-    modificarContraseña.getInstanciaMC();
-        String OldPass = LstPass.GetLst();
+        String OldPass = ArrPass.getLast();
         if (NewPass.equals(OldPass)){
             return false;
         }else{
-            this.AñadirPass(NewPass);
-           // LstPass.AddDate(Date.toString());
+            ArrPass.add(NewPass);
             return true;
         }
     }
-    /*
-    public String GetAllPassSout (){ // METODO DE TESTEO ( anda )
+    
+    public String GetAllPass(){ 
         String All="";
         for (int i=0;i<=ArrPass.size()-1;i++){
             All=ArrPass.get(i);
             System.out.println(All);
         }
         return All;
-    }*/
-    
-    // Posible metodo para que la contraseña sea distinta a 3 anteriores
-    
-    /* 
-    En esta clase se ubican las operaciones comúnes a:
-    - Lista de cambios de contraseña
-    */
-    
-    /* Métodos primitivos */
-    
-    /*public void Cont (){
-        this.Intentos++;
-    }                           */ //Capas que metodo util, IDK en este momento, queda por las dudas
-
-    /*    public String GetLastPass (){ // Regresa la ultima contraseña
-        int tamaño=(ArrPass.size());
-        tamaño--;
-        String Pass=ArrPass.get(tamaño);
-        return Pass;
-    } */
-    
-/*    public String GetAllPass (){ // Regresa TODAS las contraseñas del usr
-        String All="";
-        for (int i=0;i<=ArrPass.size()-1;i++){
-            All=ArrPass.get(i);
-        }
-        return All;
-    } */
+    }
     
     
-    /* Métodos específicos */
+    public String GetLastPass (){ // Regresa la ultima contraseña
+        return ArrPass.getLast();
+    } 
+    
+        // Posible metodo para que la contraseña sea distinta a 3 anteriores
     
 //***************************************************************************    
     @Override

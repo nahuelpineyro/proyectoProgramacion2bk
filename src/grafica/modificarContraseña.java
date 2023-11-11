@@ -189,8 +189,8 @@ public class modificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMCActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        //LstPass.GetAll();
-        //System.out.println(LstPass.GetAllDate());
+
+        
         
         if (Historia.ChPass(txtNewPass.getText())){
             System.out.println("test true cambio pass");

@@ -10,6 +10,7 @@ public class fachada {
     private static fachada instancia;
 
     private LstUsuarios lst;
+
     public static fachada getInstanciaFachada() {
 
         if (instancia == null) {
@@ -19,18 +20,16 @@ public class fachada {
         return instancia;
 
     }
-    
+
     private fachada() {
         LstUsuarios lst = new LstUsuarios();
         this.lst = Archivo.getInstancia().usuariosRegistrados();
     }
-    
-    
-    
+
     String username;
 
     public String createUsername(String nombre, String apellido) { // Crea el ID del usuario
-        
+
         altaUsuario.getInstanciaALTA();
         Usuario u = new Usuario();
         String name = nombre;
@@ -67,18 +66,34 @@ public class fachada {
     public boolean PassCheck(String Pass1, String Pass2) { // revisa que las contraseñas sean iguales a la hora de modificar
         return Pass1.equals(Pass2);
     }
-    
-    
-    public String bajaUsuario(String username, String password){
-        
-        if(comprobacion(username)){
-            
-            lst.eliminarIndex(lst.devolverIndexUsr(username));
+
+    public String bajaUsuario(String username) {
+        System.out.println("");
+        System.out.println("lista al principio" + this.lst);
+        System.out.println("");
+        for (int i = 0; i <= this.lst.cantidad(); i++) {
+            System.out.println("");
+            System.out.println("Esto imprime this.lst.devolver(i).getId() antes del if" + this.lst.devolver(i).getId());
+            System.out.println("");
+            if (this.lst.devolver(i).getId().equals(username)) {
+                System.out.println("");
+                System.out.println("Esto imprime lst.devolver(i)" + this.lst.devolver(i));
+                System.out.println("");
+                Usuario u = this.lst.devolver(i);
+                this.lst.eliminarUser(u);
+                Archivo.getInstancia().registrarUsuario(this.lst);
+                String mensaje = "usuario eliminado";
+                System.out.println("");
+                System.out.println("sout si el usuario fue borrado"  + lst);
+                return mensaje;
+            }
         }
-        
-        
-        return null;
+        // If the loop completes without finding the user
+        String mensajeOpuesto = "El usuario no existe";
+        System.out.println("");
+        System.out.println("sout al final de baja usuario"  + lst);
+        System.out.println("");
+        return mensajeOpuesto;
     }
-    
-    /* para pushear*/
+
 }

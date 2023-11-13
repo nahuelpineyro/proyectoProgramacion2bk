@@ -30,7 +30,7 @@ public class Historial implements Serializable{
     }
 
     
-    public boolean ChPass (String NewPass){  // Metodo para cambiar la contraseña
+   /* public boolean ChPass (String NewPass){  // Metodo para cambiar la contraseña
         String OldPass = ArrPass.getLast();
         if (NewPass.equals(OldPass)){
             return false;
@@ -38,7 +38,7 @@ public class Historial implements Serializable{
             ArrPass.add(NewPass);
             return true;
         }
-    }
+    }*/
     
     public String GetAllPass(){ 
         String All="";
@@ -50,9 +50,9 @@ public class Historial implements Serializable{
     }
     
     
-    public String GetLastPass (){ // Regresa la ultima contraseña
+    /*public String GetLastPass (){ // Regresa la ultima contraseña
         return ArrPass.getLast();
-    } 
+    } */
     
         // Posible metodo para que la contraseña sea distinta a 3 anteriores
     

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package grafica;
-
+import Fachada.fachada;
 /**
  *
  * @author nahue
@@ -23,7 +23,8 @@ public class bajaUsuario extends javax.swing.JFrame {
         }
         return instancia;
     }
-
+    
+     fachada f = fachada.getInstanciaFachada();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,14 +34,12 @@ public class bajaUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNombreUsuarioBaja = new javax.swing.JLabel();
         txtusername = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         btnVolverBaja = new javax.swing.JButton();
-        txtContraseñaBaja = new javax.swing.JLabel();
         txtMsjBaja = new javax.swing.JLabel();
+        txtNombreUsuario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,9 +48,12 @@ public class bajaUsuario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setText("Baja Usuario");
 
-        jLabel4.setText("Su Contraseña");
-
-        btnEliminar.setText("Ingresar");
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnVolverBaja.setText("Volver");
         btnVolverBaja.addActionListener(new java.awt.event.ActionListener() {
@@ -73,15 +75,11 @@ public class bajaUsuario extends javax.swing.JFrame {
                         .addComponent(btnVolverBaja))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(41, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtusername))
-                                .addGap(25, 25, 25)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombreUsuarioBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtContraseñaBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtusername)
+                                .addGap(28, 28, 28)
+                                .addComponent(txtNombreUsuario))
                             .addComponent(txtMsjBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(44, 44, 44))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -95,14 +93,10 @@ public class bajaUsuario extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtNombreUsuarioBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtusername))
-                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(txtContraseñaBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtusername)
+                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
                 .addComponent(txtMsjBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -121,6 +115,10 @@ public class bajaUsuario extends javax.swing.JFrame {
        f.show();
        dispose();
     }//GEN-LAST:event_btnVolverBajaActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        txtMsjBaja.setText(f.bajaUsuario(txtNombreUsuario.getText()));
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,10 +159,8 @@ public class bajaUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnVolverBaja;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel txtContraseñaBaja;
     private javax.swing.JLabel txtMsjBaja;
-    private javax.swing.JLabel txtNombreUsuarioBaja;
+    private javax.swing.JTextField txtNombreUsuario;
     private javax.swing.JLabel txtusername;
     // End of variables declaration//GEN-END:variables
 }

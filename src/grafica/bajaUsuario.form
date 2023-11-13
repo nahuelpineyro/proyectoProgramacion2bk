@@ -33,17 +33,11 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="41" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtusername" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNombreUsuarioBaja" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
-                                  <Component id="txtContraseñaBaja" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtusername" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="txtNombreUsuario" max="32767" attributes="0"/>
                           </Group>
                           <Component id="txtMsjBaja" min="-2" pref="362" max="-2" attributes="0"/>
                       </Group>
@@ -64,16 +58,11 @@
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="36" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="txtNombreUsuarioBaja" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
-                  <Component id="txtusername" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtContraseñaBaja" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="txtusername" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombreUsuario" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Component id="txtMsjBaja" min="-2" pref="54" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -86,8 +75,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="txtNombreUsuarioBaja">
-    </Component>
     <Component class="javax.swing.JLabel" name="txtusername">
       <Properties>
         <Property name="text" type="java.lang.String" value="Su Nombre de usuario"/>
@@ -101,15 +88,13 @@
         <Property name="text" type="java.lang.String" value="Baja Usuario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Su Contrase&#xf1;a"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="btnEliminar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ingresar"/>
+        <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnVolverBaja">
       <Properties>
@@ -119,9 +104,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverBajaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtContrase&#xf1;aBaja">
-    </Component>
     <Component class="javax.swing.JLabel" name="txtMsjBaja">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNombreUsuario">
     </Component>
   </SubComponents>
 </Form>

@@ -6,7 +6,7 @@ import grafica.modificarContraseña;
 
 public class Historial implements Serializable{
     private ArrayList<String> ArrPass;
-    private String HstPass;
+    //private String HstPass;
     private static Historial single_instance = null;
 
     public static Historial getInstanciaHistorial() {
@@ -21,7 +21,7 @@ public class Historial implements Serializable{
     
     public Historial(){
         ArrPass = new ArrayList<>();
-        String HstPass = this.HstPass;
+        //String HstPass = this.HstPass;
     }
 
     public void AñadirPass (String Pass){ // Añade la contraseña al array

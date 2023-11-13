@@ -30,8 +30,15 @@ public class LstUsuarios implements Serializable {
     }
     
     public int devolverIndexUsr(String u){
-        return lista.indexOf(u);
+     for (int i = 0; i< lista.size(); i++){
+        if(lista.get(i).getId().equals(u)){
+        return i;
+              }
+        }
+        return -1;
     }
+    
+    
     public boolean sinRegistros() {
         return lista.isEmpty();
     }

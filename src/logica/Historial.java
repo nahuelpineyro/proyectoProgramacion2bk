@@ -5,30 +5,37 @@ import java.util.ArrayList;
 import grafica.modificarContraseña;
 
 public class Historial implements Serializable{
-    private ArrayList<String> ArrPass;
-    //private String HstPass;
-    private static Historial single_instance = null;
-
-    public static Historial getInstanciaHistorial() {
-
-        if (single_instance == null) {
-            single_instance = new Historial();
-        }
-        return single_instance;
-    }
-    Fecha Date = new Fecha();
+    private ArrayList<Pass> LstPass;
     
     
     public Historial(){
-        ArrPass = new ArrayList<>();
-        //String HstPass = this.HstPass;
+        LstPass = new ArrayList<>();
     }
 
-    public void AñadirPass (String Pass){ // Añade la contraseña al array
-        ArrPass.add(Pass);
+    // getters para la herencia
+    
+    public void AñadirPass (Pass P){ // Añade la contraseña al array
+        LstPass.add(P);
         System.out.println("Se ejecuta AñadirPass (Historial)");
     }
 
+    public void EliminarPass (Pass P){
+        LstPass.remove(P);
+    }
+    
+    public int TamañoLstPass(){
+        return LstPass.size();
+    }
+    
+    public Pass devolver (int i){
+        return LstPass.get(i);
+    }
+    
+    public String GetPass (int i){
+        return LstPass.get(i) // .getContraseña(); ( revisar metodo ) 
+    }
+    
+    
     
    /* public boolean ChPass (String NewPass){  // Metodo para cambiar la contraseña
         String OldPass = ArrPass.getLast();
@@ -40,25 +47,25 @@ public class Historial implements Serializable{
         }
     }*/
     
+    /*
     public String GetAllPass(){ 
         String All="";
-        for (int i=0;i<=ArrPass.size()-1;i++){
-            All=ArrPass.get(i);
+        for (int i=0;i<=LstPass.size()-1;i++){
+            All=LstPass.get(i);
             System.out.println(All);
         }
         return All;
     }
     
+    */
     
-    /*public String GetLastPass (){ // Regresa la ultima contraseña
-        return ArrPass.getLast();
-    } */
-    
-        // Posible metodo para que la contraseña sea distinta a 3 anteriores
+    public Pass GetLst(){
+        return LstPass.getLast();
+    }
     
 //***************************************************************************    
     @Override
     public String toString() {
-        return ArrPass.toString();
+        return LstPass.toString();
     }
 } // Fin

@@ -8,7 +8,7 @@ import logica.LstCambiosPass;
 
 public class Pass implements Serializable{
     private Instante instante;  //Genera la fecha y hora al generarese
-    private String contrasenia;
+    private Pass contrasenia;
     private Random azar;
     
     public Pass() {
@@ -19,10 +19,19 @@ public class Pass implements Serializable{
     fachada facha = fachada.getInstanciaFachada();
     Fecha Date = new Fecha();
     
-                                
+    
+    public void setContrasenia(Pass contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public Pass getContrasenia() {
+        return contrasenia;
+    }
+    
+    
     public String Gen (){ //Generador random de contraseña
         
-        Historial Historia = new Historial();    
+        Historial Historia = new Historial();  
         Random r = new Random();
         
         int cont=1;
@@ -57,31 +66,32 @@ public class Pass implements Serializable{
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
                 //this.setContrasenia(contrasenia);
-                Historia.AñadirPass(contrasenia);
+                //Historia.AñadirPass(contrasenia);
+                
+                //this.setContrasenia(contrasenia);  // Not working so far
+                
+                Historia.AñadirPass(this.contrasenia);
+                
                 System.out.println("Pass: " + contrasenia);
                 
                 return contrasenia;
         }
 
-        
-        
-    
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-    
                                 
     public String Politica (){ // Politica del nivel de la  contraseña
-        int NivelSec=contrasenia.length();
+        
+        String Entrada = this.toStringPass();
+        
+        int NivelSec=Entrada.length();
         int NivelMultiplo=1;
         String Nivel="";
 
                 
-                for (int c=0 ;c<=contrasenia.length()-1 ; c++){
+                for (int c=0 ;c<=Entrada.length()-1 ; c++){
                     
                     
-                    char Ch = contrasenia.charAt(c);
+                    char Ch = Entrada.charAt(c);
                     
                     if (Ch >= ':' && Ch <= '@'){
                         NivelMultiplo++;
@@ -107,5 +117,8 @@ public class Pass implements Serializable{
     @Override
     public String toString() {
         return "\n[" + contrasenia + "]" + "{" + instante + "}";
+    }
+    public String toStringPass(){
+        return ""+contrasenia;
     }
 }

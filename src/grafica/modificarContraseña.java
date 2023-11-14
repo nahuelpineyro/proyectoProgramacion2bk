@@ -60,7 +60,6 @@ public class modificarContraseña extends javax.swing.JFrame {
         return instancia;
     }
     
-    Historial Historia = Historial.getInstanciaHistorial();
     fachada Facha = fachada.getInstanciaFachada();
   //  LstCambiosPass LstPass = LstCambiosPass.getInstance();
         LstCambiosPass LstPass = new LstCambiosPass();

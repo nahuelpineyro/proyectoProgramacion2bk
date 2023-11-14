@@ -14,7 +14,7 @@ public class Historial implements Serializable{
 
     // getters para la herencia
     
-    public void AñadirPass (Pass P){ // Añade la contraseña al array
+    public void AñadirPass (Pass P){
         LstPass.add(P);
         System.out.println("Se ejecuta AñadirPass (Historial)");
     }
@@ -31,22 +31,22 @@ public class Historial implements Serializable{
         return LstPass.get(i);
     }
     
-    public String GetPass (int i){
-        return LstPass.get(i) // .getContraseña(); ( revisar metodo ) 
+    public String getLast(){
+        String Last = toStringlst(LstPass.getLast());
+        return Last;
     }
     
+    public String toStringlst(Pass P){
+        return ""+LstPass;
+    }
+    
+    /*public String GetPass (int i){
+        return LstPass.get(i) // .getContraseña(); ( revisar metodo ) 
+    }
+*/    
     
     
-   /* public boolean ChPass (String NewPass){  // Metodo para cambiar la contraseña
-        String OldPass = ArrPass.getLast();
-        if (NewPass.equals(OldPass)){
-            return false;
-        }else{
-            ArrPass.add(NewPass);
-            return true;
-        }
-    }*/
-    
+
     /*
     public String GetAllPass(){ 
         String All="";

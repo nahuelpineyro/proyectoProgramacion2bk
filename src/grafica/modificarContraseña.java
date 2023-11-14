@@ -188,10 +188,7 @@ public class modificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMCActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-
-        
-        
-        /*if (Historia.ChPass(txtNewPass.getText()) && Facha.PassCheck(txtNewPass.getText(), txtNewPassConf.getText())){
+    if (Historial.ChPass(txtNewPass.getText()) && Facha.PassCheck(txtNewPass.getText(), txtNewPassConf.getText())){
             System.out.println("test true cambio pass");
         }else{
             JOptionPane.showMessageDialog(this,"Error, revise los datos");

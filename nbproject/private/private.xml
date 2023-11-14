@@ -5,8 +5,10 @@
         <group>
             <file>file:/home/matias/Desktop/Proyectos/proyectoProgramacion2bk/src/grafica/altaUsuario.java</file>
             <file>file:/home/matias/Desktop/Proyectos/proyectoProgramacion2bk/src/grafica/modificarContraseña.java</file>
+            <file>file:/home/matias/Desktop/Proyectos/proyectoProgramacion2bk/src/logica/LstCambiosPass.java</file>
             <file>file:/home/matias/Desktop/Proyectos/proyectoProgramacion2bk/src/logica/Pass.java</file>
             <file>file:/home/matias/Desktop/Proyectos/proyectoProgramacion2bk/src/logica/Historial.java</file>
+            <file>file:/home/matias/Desktop/Proyectos/proyectoProgramacion2bk/src/Fachada/fachada.java</file>
         </group>
     </open-files>
 </project-private>

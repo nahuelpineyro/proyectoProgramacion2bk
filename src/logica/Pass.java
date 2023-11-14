@@ -4,11 +4,10 @@ import java.io.Serializable;
 import java.util.Random;
 import Fachada.fachada;
 import logica.Historial;
-import logica.LstCambiosPass;
 
 public class Pass implements Serializable{
     private Instante instante;  //Genera la fecha y hora al generarese
-    private Pass contrasenia;
+    private String contrasenia;
     private Random azar;
     
     public Pass() {
@@ -20,11 +19,11 @@ public class Pass implements Serializable{
     Fecha Date = new Fecha();
     
     
-    public void setContrasenia(Pass contrasenia) {
+    public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
 
-    public Pass getContrasenia() {
+    public String getContrasenia() {
         return contrasenia;
     }
     
@@ -40,6 +39,7 @@ public class Pass implements Serializable{
         int Random;
         
         do{
+        
              if (contrasenia.length()<=x){   
                 char Gen = (char) (97 + r.nextInt(25));
                 contrasenia = contrasenia+Gen;       
@@ -65,12 +65,7 @@ public class Pass implements Serializable{
                 Sp=Character.toUpperCase(Sp);
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
-                //this.setContrasenia(contrasenia);
-                //Historia.AñadirPass(contrasenia);
-                
-                //this.setContrasenia(contrasenia);  // Not working so far
-                
-                Historia.AñadirPass(this.contrasenia);
+                this.setContrasenia(contrasenia);  // Not working so far
                 
                 System.out.println("Pass: " + contrasenia);
                 
@@ -113,6 +108,21 @@ public class Pass implements Serializable{
                 }
                 return Nivel;
     }
+
+   
+        public boolean ChPass (String NewPass){  // Metodo para cambiar la contraseña
+        
+
+            
+            String OldPass = Historia.getLast();
+        if (NewPass.equals(OldPass)){
+            return false;
+        }else{
+            LstPass.add(NewPass);
+            return true;
+        }
+    }
+    
     
     @Override
     public String toString() {

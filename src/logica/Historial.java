@@ -31,9 +31,8 @@ public class Historial implements Serializable{
         return LstPass.get(i);
     }
     
-    public String getLast(){
-        String Last = toStringlst(LstPass.getLast());
-        return Last;
+    public Pass getLast(){
+        return LstPass.get(-1);
     }
     
     public String toStringlst(Pass P){
@@ -59,9 +58,7 @@ public class Historial implements Serializable{
     
     */
     
-    public Pass GetLst(){
-        return LstPass.getLast();
-    }
+   
     
 //***************************************************************************    
     @Override

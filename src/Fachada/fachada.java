@@ -3,7 +3,10 @@ package Fachada;
 import logica.Usuario;
 import logica.LstUsuarios;
 import grafica.altaUsuario;
+import java.io.Serializable;
 import persistencia.Archivo;
+import logica.LstCambiosPass;
+import logica.Pass;
 
 public class fachada {
 
@@ -22,24 +25,30 @@ public class fachada {
     }
 
     private fachada() {
-        LstUsuarios lst = new LstUsuarios();
+        
         this.lst = Archivo.getInstancia().usuariosRegistrados();
     }
 
     String username;
 
+    
+
     public String createUsername(String nombre, String apellido) { // Crea el ID del usuario
 
-        altaUsuario.getInstanciaALTA();
-        Usuario u = new Usuario();
         String name = nombre;
         String lastname = apellido;
         String username = name.charAt(0) + lastname;
-        u.setId(username);
 
-        if (comprobacion(u.getId())) {
+        Usuario u = new Usuario(); // generamos el objeto usuario
+        System.out.println(lst);
+        if (comprobacion(username)) {
             lst.agregar(u);
             Archivo.getInstancia().registrarUsuario(lst);
+            u.setId(username); // le asigno el nombre de usuario
+            Pass p = new Pass(); // creamos el objeto contraseña para poder agregarle una pass al usuario
+            p.Gen();  // llamamos al metodo gen para generar una contraseña
+            u.getLstCambios().AñadirPass(p); // añadimos la contraseña al listado historial
+            System.out.println("La lista" + lst);
             return username;
         } else {
             String mensaje = "El usuario " + username + " ya existe";
@@ -72,26 +81,21 @@ public class fachada {
         System.out.println("lista al principio" + this.lst);
         System.out.println("");
         for (int i = 0; i <= this.lst.cantidad(); i++) {
-            System.out.println("");
-            System.out.println("Esto imprime this.lst.devolver(i).getId() antes del if" + this.lst.devolver(i).getId());
-            System.out.println("");
+
             if (this.lst.devolver(i).getId().equals(username)) {
-                System.out.println("");
-                System.out.println("Esto imprime lst.devolver(i)" + this.lst.devolver(i));
-                System.out.println("");
+
                 Usuario u = this.lst.devolver(i);
                 this.lst.eliminarUser(u);
                 Archivo.getInstancia().registrarUsuario(this.lst);
                 String mensaje = "usuario eliminado";
-                System.out.println("");
-                System.out.println("sout si el usuario fue borrado"  + lst);
+
                 return mensaje;
             }
         }
         // If the loop completes without finding the user
         String mensajeOpuesto = "El usuario no existe";
         System.out.println("");
-        System.out.println("sout al final de baja usuario"  + lst);
+        System.out.println("sout al final de baja usuario" + lst);
         System.out.println("");
         return mensajeOpuesto;
     }

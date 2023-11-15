@@ -2,6 +2,7 @@ package logica;
 
 import java.io.Serializable;
 
+import logica.LstCambiosPass;
 public class Usuario implements Serializable{
 
     private String id;
@@ -29,13 +30,13 @@ public class Usuario implements Serializable{
         return lstInicios.toString();
     }
 
-    /* 
-    Operaciones específicas sobre el usuario que implica:
-    - La lista de inicio de sesión de un usuario en concreto
-    
-    - La lista de cambio de contraseñas de un usuario en concreto
-    
-    */
+    public void setLstCambios(LstCambiosPass pass){
+        this.lstCambios = pass;
+    }
+
+    public LstCambiosPass getLstCambios() {
+        return lstCambios;
+    }
 
     @Override
     public String toString() {

@@ -25,7 +25,6 @@ public class fachada {
     }
 
     private fachada() {
-        
         this.lst = Archivo.getInstancia().usuariosRegistrados();
     }
 
@@ -42,6 +41,8 @@ public class fachada {
         Usuario u = new Usuario(); // generamos el objeto usuario
         System.out.println(lst);
         if (comprobacion(username)) {
+            
+            /******************* Esto vas a hacerlo en un metodo aparte */ // queda aqui para testeo only
             lst.agregar(u);
             Archivo.getInstancia().registrarUsuario(lst);
             u.setId(username); // le asigno el nombre de usuario
@@ -49,6 +50,8 @@ public class fachada {
             p.Gen();  // llamamos al metodo gen para generar una contraseña
             u.getLstCambios().AñadirPass(p); // añadimos la contraseña al listado historial
             System.out.println("La lista" + lst);
+            /**************************************************************/
+            
             return username;
         } else {
             String mensaje = "El usuario " + username + " ya existe";
@@ -61,9 +64,8 @@ public class fachada {
         if (lst.sinRegistros()) { //True si esta la lista vacia
             return true;
         }
-
         for (int i = 0; i <= lst.cantidad(); i++) {
-            if (lst.devolver(i).getId().equals(id)) {
+            if (lst.devolver(i).getId().equals(id)) {  // regresa null siempre ( problema en getID )
 
                 return false; // False si encuentra un username similar
             }

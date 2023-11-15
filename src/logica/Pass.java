@@ -2,8 +2,6 @@ package logica;
 
 import java.io.Serializable;
 import java.util.Random;
-import Fachada.fachada;
-import logica.Historial;
 import logica.LstCambiosPass;
 
 public class Pass implements Serializable{
@@ -16,7 +14,6 @@ public class Pass implements Serializable{
         instante = new Instante();
     }
     
-    fachada facha = fachada.getInstanciaFachada();
     Fecha Date = new Fecha();
     
     
@@ -28,8 +25,44 @@ public class Pass implements Serializable{
         return contrasenia;
     }
     
+                                
+    public String Politica (){ // Politica del nivel de la  contraseña
+        
+        
+        int NivelSec=contrasenia.length();
+        int NivelMultiplo=1;
+        String Nivel="";
+
+                
+                for (int c=0 ;c<=contrasenia.length()-1 ; c++){
+                    
+                    
+                    char Ch = contrasenia.charAt(c);
+                    
+                    if (Ch >= ':' && Ch <= '@'){
+                        NivelMultiplo++;
+                    }
+                    if (Ch >= 'A' && Ch <= 'Z'){
+                        NivelMultiplo++;
+                    }
+                }
+                NivelSec=NivelSec*NivelMultiplo;
+                
+                if (NivelSec<=24){
+                    Nivel="Debil";
+                }
+                if (NivelSec>24 && NivelSec<=36){
+                    Nivel="Buena";
+                }
+                if (NivelSec>36){
+                    Nivel="Avanzada";
+                }
+                return Nivel;
+    }
     
-    public String Gen (){ //Generador random de contraseña
+    /************************************Generador de pass*************************************/
+    
+        public String Gen (){ //Generador random de contraseña
         
          
         Random r = new Random();
@@ -40,7 +73,6 @@ public class Pass implements Serializable{
         int Random;
         
         do{
-        
              if (contrasenia.length()<=x){   
                 char Gen = (char) (97 + r.nextInt(25));
                 contrasenia = contrasenia+Gen;       
@@ -66,7 +98,7 @@ public class Pass implements Serializable{
                 Sp=Character.toUpperCase(Sp);
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
-                this.setContrasenia(contrasenia);  // Not working so far
+                this.setContrasenia(contrasenia);
                 
                 System.out.println("Pass: " + contrasenia);
                 LstCambiosPass l = new LstCambiosPass();
@@ -75,64 +107,9 @@ public class Pass implements Serializable{
                    
                 return contrasenia;
         }
-
-
-                                
-    public String Politica (){ // Politica del nivel de la  contraseña
-        
-        String Entrada = this.toStringPass();
-        
-        int NivelSec=Entrada.length();
-        int NivelMultiplo=1;
-        String Nivel="";
-
-                
-                for (int c=0 ;c<=Entrada.length()-1 ; c++){
-                    
-                    
-                    char Ch = Entrada.charAt(c);
-                    
-                    if (Ch >= ':' && Ch <= '@'){
-                        NivelMultiplo++;
-                    }
-                    if (Ch >= 'A' && Ch <= 'Z'){
-                        NivelMultiplo++;
-                    }
-                }
-                NivelSec=NivelSec*NivelMultiplo;
-                
-                if (NivelSec<=24){
-                    Nivel="Debil";
-                }
-                if (NivelSec>24 && NivelSec<=36){
-                    Nivel="Buena";
-                }
-                if (NivelSec>36){
-                    Nivel="Avanzada";
-                }
-                return Nivel;
-    }
-
-   
-        /*public boolean ChPass (String NewPass){  // Metodo para cambiar la contraseña
-        
-
-            
-            String OldPass = Historia.getLast();
-        if (NewPass.equals(OldPass)){
-            return false;
-        }else{
-            LstPass.add(NewPass);
-            return true;
-        }
-    }*/
-    
     
     @Override
     public String toString() {
         return "\n[" + contrasenia + "]" + "{" + instante + "}";
-    }
-    public String toStringPass(){
-        return ""+contrasenia;
     }
 }

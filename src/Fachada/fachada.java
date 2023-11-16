@@ -81,17 +81,20 @@ public class fachada implements Serializable {
 
             if (this.lst.devolver(i).getId().equals(username)) {
                 Usuario u = this.lst.devolver(i);
-                String TrueviejaPass = u.getPass();
+                String TrueViejaPass = u.getPass();
                 
-                if (TrueviejaPass.equals(viejaPass)){
+                if (TrueViejaPass.equals(viejaPass)){
                 
-                    if(TrueviejaPass != nuevaPass){ // Caso para que sean distintas
+                    if(!TrueViejaPass.equals(nuevaPass)){ // Caso para que sean distintas
 
                         u.setPass(nuevaPass);
                         Pass p = new Pass();
                         p.setContrasenia(nuevaPass);
                         u.getLstCambios().AñadirPass(p); 
                         System.out.println("Test Cambio Pass\n"+lst);
+                        
+                        Archivo.getInstancia().registrarUsuario(lst);
+                        
                         return "Cambio de contraseña exitoso";
                     }else{
                         return "Las contraseñas son iguales";
@@ -105,41 +108,6 @@ public class fachada implements Serializable {
         return "Error";
     }
     
-/*    public String ModificarContraseña(String viejaPass, String nuevaPass, String username) { // revisa que las contraseñas sean iguales a la hora de modificar
-        String passViejaLst = "";
-        for (int i = 0; i <= lst.cantidad(); i++) {
-            System.out.println(lst.devolver(i).getId());
-            if (lst.devolver(i).getId().equals(username)) {
-                Usuario u = this.lst.devolver(i);
-                
-                passViejaLst = u.getLstCambios().devolver(-1).getContrasenia();
-                System.out.println(passViejaLst = u.getLstCambios().devolver(-1).getContrasenia());
-                System.out.println(passViejaLst);
-            } else {
-                System.out.println("El usuario no existe");
-                String mensajeUserFalse = "El usuario no existe";
-                return mensajeUserFalse;
-            }
-            if (passViejaLst == nuevaPass) {
-                System.out.println("La contraseña no puede ser igual a la anterior");
-                String mensajeSamePwd = "La contraseña no puede ser igual a la anterior";
-                return mensajeSamePwd;
-            }
-            if (viejaPass != passViejaLst) {
-                System.out.println("La contraseña antigua ingresada no es correcta");
-                String mensajeOldPwd = "La contraseña antigua ingresada no es correcta";
-                return mensajeOldPwd;
-            }
-
-        }
-        String mensajeExito = "Contraseña cambiada con exito";
-        return mensajeExito;
-    } */
-
-    /*public String modificarContraseña(String viejaPass, String nuevaPass, String username) {
-
-        return null;
-    }*/
 
     public String bajaUsuario(String username) {
         System.out.println("");

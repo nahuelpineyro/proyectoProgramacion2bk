@@ -98,13 +98,10 @@ public class Pass implements Serializable{
                 Sp=Character.toUpperCase(Sp);
                 contrasenia = contrasenia.substring(0,i)+ Sp + contrasenia.substring(i+1);
                 
-                this.setContrasenia(contrasenia);
+                setContrasenia(contrasenia);
                 
-                System.out.println("Pass: " + contrasenia);
                 LstCambiosPass l = new LstCambiosPass();
                 
-               
-                   
                 return contrasenia;
         }
     

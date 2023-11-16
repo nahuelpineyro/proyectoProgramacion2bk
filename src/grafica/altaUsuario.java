@@ -3,6 +3,7 @@ package grafica;
 
 import logica.Pass;
 import Fachada.fachada;
+import static java.lang.Thread.sleep;
 
 public class altaUsuario extends javax.swing.JFrame {
     private static altaUsuario instancia;
@@ -130,10 +131,11 @@ public class altaUsuario extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
         txtNombreUsuarioAlta.setText(f.createUsername(txtNombreAlta.getText(),txtApellidoAlta.getText()));
+        //sleep(); en caso de error usar esto para mostrar la pass
         if (f.comprobacion(txtNombreUsuarioAlta.getText())){
             txtContraseñaAlta.setText("");
         }else{
-            txtContraseñaAlta.setText(P.Gen());
+            txtContraseñaAlta.setText(f.UltimaPass(txtNombreUsuarioAlta.getText())); // Mostrar la contraseña correcta
         }
         
      

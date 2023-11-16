@@ -39,13 +39,11 @@ public class fachada implements Serializable {
         System.out.println(lst);
         if (comprobacion(username)) {
 
-            /**
-             * ***************** Esto vas a hacerlo en un metodo aparte
-             */ // queda aqui para testeo only
             Usuario u = new Usuario(); // generamos el objeto usuario
             u.setId(username); // le asigno el nombre de usuario
             Pass p = new Pass(); // creamos el objeto contraseña para poder agregarle una pass al usuario
-            p.Gen();  // llamamos al metodo gen para generar una contraseña
+            //p.Gen();  
+            u.setPass(p.Gen()); // llamamos al metodo gen para generar una contraseña
             u.getLstCambios().AñadirPass(p); // añadimos la contraseña al listado historial
             lst.agregar(u);
             Archivo.getInstancia().registrarUsuario(lst);
@@ -54,9 +52,6 @@ public class fachada implements Serializable {
             System.out.println("TERMINADO DE AGREGAR USUARIO");
             System.out.println("La lista/n" + lst);
             System.out.println("");
-            /**
-             * ***********************************************************
-             */
 
             return username;
         } else {
@@ -149,6 +144,19 @@ public class fachada implements Serializable {
                 return mensaje;
             }
 
+        }
+        String mensajeError = "No existe ese usuario en el sistema";
+        return mensajeError;
+    }
+    
+    public String UltimaPass (String username){
+        for (int i = 0; i <= this.lst.cantidad(); i++) {
+
+            if (this.lst.devolver(i).getId().equals(username)) {
+                Usuario u = this.lst.devolver(i);
+                String mensaje = u.getPass();
+                return mensaje;
+            }
         }
         String mensajeError = "No existe ese usuario en el sistema";
         return mensajeError;

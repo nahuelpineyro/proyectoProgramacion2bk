@@ -6,6 +6,7 @@ import logica.LstCambiosPass;
 public class Usuario implements Serializable{
 
     private String id;
+    private String Pass;
     private LstInicioSesiones lstInicios;
     private LstCambiosPass lstCambios;
 
@@ -22,6 +23,16 @@ public class Usuario implements Serializable{
         this.id = id;
     }
 
+    public String getPass() {
+        return Pass;
+    }
+
+    public void setPass(String Pass) {
+        this.Pass = Pass;
+    }
+    
+    
+
     public String verCambios() {
         return lstCambios.toString();
     }
@@ -37,10 +48,16 @@ public class Usuario implements Serializable{
     public LstCambiosPass getLstCambios() {
         return lstCambios;
     }
+    
+    public String getUltima(){
+        String Ultima = lstCambios.getLast().toString();
+        System.out.println("Usuarioultima "+Ultima);
+        return Ultima;
+    }
 
     @Override
     public String toString() {
-        return "Usuario:" + id + "\nInicios de sesion: " + verSesiones()
+        return "Usuario:" + id + " Pass: "+ Pass + "\nInicios de sesion: " + verSesiones()
                 + "\ncambios de pass: " + verCambios();
     }
 

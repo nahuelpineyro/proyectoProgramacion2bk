@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/nahue/Desktop/Programacion/proyectoProgramacion2bk/src/persistencia/Archivo.java</file>
             <file>file:/C:/Users/nahue/Desktop/Programacion/proyectoProgramacion2bk/src/logica/Pass.java</file>
             <file>file:/C:/Users/nahue/Desktop/Programacion/proyectoProgramacion2bk/src/logica/Usuario.java</file>
@@ -14,6 +15,17 @@
             <file>file:/C:/Users/nahue/Desktop/Programacion/proyectoProgramacion2bk/src/grafica/altaUsuario.java</file>
             <file>file:/C:/Users/nahue/Desktop/Programacion/proyectoProgramacion2bk/src/logica/LstInicioSesiones.java</file>
             <file>file:/C:/Users/nahue/Desktop/Programacion/proyectoProgramacion2bk/src/grafica/FrmPrincipal.java</file>
+=======
+            <file>file:/C:/Users/nahue/Documents/GitHub/proyectoProgramacion2bk/src/Fachada/fachada.java</file>
+            <file>file:/C:/Users/nahue/Documents/GitHub/proyectoProgramacion2bk/src/persistencia/Archivo.java</file>
+            <file>file:/C:/Users/nahue/Documents/GitHub/proyectoProgramacion2bk/src/grafica/altaUsuario.java</file>
+            <file>file:/C:/Users/nahue/Documents/GitHub/proyectoProgramacion2bk/src/logica/LstCambiosPass.java</file>
+            <file>file:/C:/Users/nahue/Documents/GitHub/proyectoProgramacion2bk/src/logica/Historial.java</file>
+            <file>file:/C:/Users/nahue/Documents/GitHub/proyectoProgramacion2bk/src/grafica/modificarContraseña.java</file>
+            <file>file:/C:/Users/nahue/Documents/GitHub/proyectoProgramacion2bk/src/logica/Usuario.java</file>
+            <file>file:/C:/Users/nahue/Documents/GitHub/proyectoProgramacion2bk/src/logica/Pass.java</file>
+            <file>file:/C:/Users/nahue/Documents/GitHub/proyectoProgramacion2bk/src/logica/LstUsuarios.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

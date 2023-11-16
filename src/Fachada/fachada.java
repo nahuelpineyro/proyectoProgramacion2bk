@@ -8,7 +8,7 @@ import persistencia.Archivo;
 import logica.LstCambiosPass;
 import logica.Pass;
 
-public class fachada {
+public class fachada implements Serializable {
 
     private static fachada instancia;
 
@@ -30,28 +30,34 @@ public class fachada {
 
     String username;
 
-    
-
     public String createUsername(String nombre, String apellido) { // Crea el ID del usuario
 
         String name = nombre;
         String lastname = apellido;
         String username = name.charAt(0) + lastname;
 
-        Usuario u = new Usuario(); // generamos el objeto usuario
         System.out.println(lst);
         if (comprobacion(username)) {
-            
-            /******************* Esto vas a hacerlo en un metodo aparte */ // queda aqui para testeo only
-            lst.agregar(u);
-            Archivo.getInstancia().registrarUsuario(lst);
+
+            /**
+             * ***************** Esto vas a hacerlo en un metodo aparte
+             */ // queda aqui para testeo only
+            Usuario u = new Usuario(); // generamos el objeto usuario
             u.setId(username); // le asigno el nombre de usuario
             Pass p = new Pass(); // creamos el objeto contraseña para poder agregarle una pass al usuario
             p.Gen();  // llamamos al metodo gen para generar una contraseña
             u.getLstCambios().AñadirPass(p); // añadimos la contraseña al listado historial
-            System.out.println("La lista" + lst);
-            /**************************************************************/
-            
+            lst.agregar(u);
+            Archivo.getInstancia().registrarUsuario(lst);
+
+            System.out.println("");
+            System.out.println("TERMINADO DE AGREGAR USUARIO");
+            System.out.println("La lista/n" + lst);
+            System.out.println("");
+            /**
+             * ***********************************************************
+             */
+
             return username;
         } else {
             String mensaje = "El usuario " + username + " ya existe";
@@ -74,8 +80,40 @@ public class fachada {
         return true; // True si noencuentra un username similar
     }
 
-    public boolean PassCheck(String Pass1, String Pass2) { // revisa que las contraseñas sean iguales a la hora de modificar
-        return Pass1.equals(Pass2);
+    public String ModificarContraseña(String viejaPass, String nuevaPass, String username) { // revisa que las contraseñas sean iguales a la hora de modificar
+        String passViejaLst = "";
+        for (int i = 0; i <= lst.cantidad(); i++) {
+            System.out.println(lst.devolver(i).getId());
+            if (lst.devolver(i).getId().equals(username)) {
+                Usuario u = this.lst.devolver(i);
+                
+                passViejaLst = u.getLstCambios().devolver(-1).getContrasenia();
+                System.out.println(passViejaLst = u.getLstCambios().devolver(-1).getContrasenia());
+                System.out.println(passViejaLst);
+            } else {
+                System.out.println("El usuario no existe");
+                String mensajeUserFalse = "El usuario no existe";
+                return mensajeUserFalse;
+            }
+            if (passViejaLst == nuevaPass) {
+                System.out.println("La contraseña no puede ser igual a la anterior");
+                String mensajeSamePwd = "La contraseña no puede ser igual a la anterior";
+                return mensajeSamePwd;
+            }
+            if (viejaPass != passViejaLst) {
+                System.out.println("La contraseña antigua ingresada no es correcta");
+                String mensajeOldPwd = "La contraseña antigua ingresada no es correcta";
+                return mensajeOldPwd;
+            }
+
+        }
+        String mensajeExito = "Contraseña cambiada con exito";
+        return mensajeExito;
+    }
+
+    public String modificarContraseña(String viejaPass, String nuevaPass, String username) {
+
+        return null;
     }
 
     public String bajaUsuario(String username) {
@@ -100,6 +138,20 @@ public class fachada {
         System.out.println("sout al final de baja usuario" + lst);
         System.out.println("");
         return mensajeOpuesto;
+    }
+
+    public String historialContraseñas(String username) {
+        for (int i = 0; i <= this.lst.cantidad(); i++) {
+
+            if (this.lst.devolver(i).getId().equals(username)) {
+                Usuario u = this.lst.devolver(i);
+                String mensaje = u.getLstCambios().toString();
+                return mensaje;
+            }
+
+        }
+        String mensajeError = "No existe ese usuario en el sistema";
+        return mensajeError;
     }
 
 }

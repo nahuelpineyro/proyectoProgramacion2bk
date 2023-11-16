@@ -1,6 +1,6 @@
 
 package grafica;
-
+import Fachada.fachada;
 public class historial extends javax.swing.JFrame {
 
     private static historial instancia;
@@ -17,6 +17,8 @@ public class historial extends javax.swing.JFrame {
         }
         return instancia;
     }
+    
+    fachada f = fachada.getInstanciaFachada();
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -153,7 +155,7 @@ public class historial extends javax.swing.JFrame {
     }//GEN-LAST:event_txtHistoriallInputActionPerformed
 
     private void btnBuscarHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHistorialActionPerformed
-        // TODO add your handling code here:
+        txtHistorialOutput.setText(f.historialContraseñas(txtHistoriallInput.getText()));
     }//GEN-LAST:event_btnBuscarHistorialActionPerformed
 
     private void btnVolverHISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverHISActionPerformed

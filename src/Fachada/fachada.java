@@ -75,7 +75,37 @@ public class fachada implements Serializable {
         return true; // True si noencuentra un username similar
     }
 
-    public String ModificarContraseña(String viejaPass, String nuevaPass, String username) { // revisa que las contraseñas sean iguales a la hora de modificar
+    public String ModificarPass(String viejaPass, String nuevaPass, String username){
+        
+        for (int i = 0; i <= this.lst.cantidad(); i++) {
+
+            if (this.lst.devolver(i).getId().equals(username)) {
+                Usuario u = this.lst.devolver(i);
+                String TrueviejaPass = u.getPass();
+                
+                if (TrueviejaPass.equals(viejaPass)){
+                
+                    if(TrueviejaPass != nuevaPass){ // Caso para que sean distintas
+
+                        u.setPass(nuevaPass);
+                        Pass p = new Pass();
+                        p.setContrasenia(nuevaPass);
+                        u.getLstCambios().AñadirPass(p); 
+                        System.out.println("Test Cambio Pass\n"+lst);
+                        return "Cambio de contraseña exitoso";
+                    }else{
+                        return "Las contraseñas son iguales";
+                    }
+                }else{
+                    return "La contraseña anterior es incorrecta";
+                }
+                
+            }
+        }
+        return "Error";
+    }
+    
+/*    public String ModificarContraseña(String viejaPass, String nuevaPass, String username) { // revisa que las contraseñas sean iguales a la hora de modificar
         String passViejaLst = "";
         for (int i = 0; i <= lst.cantidad(); i++) {
             System.out.println(lst.devolver(i).getId());
@@ -104,12 +134,12 @@ public class fachada implements Serializable {
         }
         String mensajeExito = "Contraseña cambiada con exito";
         return mensajeExito;
-    }
+    } */
 
-    public String modificarContraseña(String viejaPass, String nuevaPass, String username) {
+    /*public String modificarContraseña(String viejaPass, String nuevaPass, String username) {
 
         return null;
-    }
+    }*/
 
     public String bajaUsuario(String username) {
         System.out.println("");
@@ -140,13 +170,12 @@ public class fachada implements Serializable {
 
             if (this.lst.devolver(i).getId().equals(username)) {
                 Usuario u = this.lst.devolver(i);
-                String mensaje = u.getLstCambios().toString();
-                return mensaje;
+                
+                return u.getLstCambios().toString();
             }
 
         }
-        String mensajeError = "No existe ese usuario en el sistema";
-        return mensajeError;
+        return "No existe ese usuario en el sistema";
     }
     
     public String UltimaPass (String username){
@@ -154,12 +183,10 @@ public class fachada implements Serializable {
 
             if (this.lst.devolver(i).getId().equals(username)) {
                 Usuario u = this.lst.devolver(i);
-                String mensaje = u.getPass();
-                return mensaje;
+                return u.getPass();
             }
         }
-        String mensajeError = "No existe ese usuario en el sistema";
-        return mensajeError;
+        return "No existe ese usuario en el sistema";
     }
 
 }

@@ -194,7 +194,13 @@ public class modificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMCActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        txtMsjMC.setText(Facha.ModificarContraseña(txtOldPwdMC.getText(), txtNewPass.getText(), txtNomUsuarioMC.getText()));
+        if(txtNewPass.getText().equals(txtNewPassConf.getText())){
+        
+        txtMsjMC.setText(Facha.ModificarPass(txtOldPwdMC.getText(),txtNewPass.getText(), txtNomUsuarioMC.getText()));
+        
+        }else{
+            JOptionPane.showMessageDialog(null, "Revise las nuevas contraseñas");
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void txtNewPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewPassActionPerformed

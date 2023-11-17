@@ -131,9 +131,9 @@ public class altaUsuario extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
         txtNombreUsuarioAlta.setText(f.createUsername(txtNombreAlta.getText(),txtApellidoAlta.getText()));
-        //sleep(); en caso de error usar esto para mostrar la pass
-        if (f.comprobacion(txtNombreUsuarioAlta.getText())){
-            txtContraseñaAlta.setText("");
+
+        if (f.comprobacion(txtNombreUsuarioAlta.getText())){  // Revisa si el usuario existe
+            txtContraseñaAlta.setText("");                  // para mostrar una nueva pass
         }else{
             txtContraseñaAlta.setText(f.UltimaPass(txtNombreUsuarioAlta.getText())); // Mostrar la contraseña correcta
         }

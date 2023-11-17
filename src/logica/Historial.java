@@ -2,7 +2,6 @@ package logica;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import grafica.modificarContraseña;
 
 public class Historial implements Serializable{
     private ArrayList<Pass> LstPass;
@@ -38,27 +37,7 @@ public class Historial implements Serializable{
     public String toStringlst(Pass P){
         return ""+LstPass;
     }
-    
-    /*public String GetPass (int i){
-        return LstPass.get(i) // .getContraseña(); ( revisar metodo ) 
-    }
-*/    
-    
-    
 
-    /*
-    public String GetAllPass(){ 
-        String All="";
-        for (int i=0;i<=LstPass.size()-1;i++){
-            All=LstPass.get(i);
-            System.out.println(All);
-        }
-        return All;
-    }
-    
-    */
-    
-   
     
 //***************************************************************************    
     @Override

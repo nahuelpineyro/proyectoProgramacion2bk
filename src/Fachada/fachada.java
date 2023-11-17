@@ -48,10 +48,7 @@ public class fachada implements Serializable {
             lst.agregar(u);
             Archivo.getInstancia().registrarUsuario(lst);
 
-            System.out.println("");
-            System.out.println("TERMINADO DE AGREGAR USUARIO");
-            System.out.println("La lista/n" + lst);
-            System.out.println("");
+            System.out.println("La lista\n" + lst);
 
             return username;
         } else {
@@ -83,12 +80,12 @@ public class fachada implements Serializable {
                 Usuario u = this.lst.devolver(i);
                 String TrueViejaPass = u.getPass();
                 
-                if (TrueViejaPass.equals(viejaPass)){
+                if (TrueViejaPass.equals(viejaPass)){   // revisa que la contraseña anterior este correcta
                 
                     if(!TrueViejaPass.equals(nuevaPass)){ // Caso para que sean distintas
 
-                        u.setPass(nuevaPass);
-                        Pass p = new Pass();
+                        u.setPass(nuevaPass);  // setteamos la contraseña nueva al user
+                        Pass p = new Pass();       // creamos un nuevo objeto pass para guardar en el historial 
                         p.setContrasenia(nuevaPass);
                         u.getLstCambios().AñadirPass(p); 
                         System.out.println("Test Cambio Pass\n"+lst);
@@ -110,9 +107,7 @@ public class fachada implements Serializable {
     
 
     public String bajaUsuario(String username) {
-        System.out.println("");
-        System.out.println("lista al principio" + this.lst);
-        System.out.println("");
+        System.out.println("\nlista al principio" + this.lst);
         for (int i = 0; i <= this.lst.cantidad(); i++) {
 
             if (this.lst.devolver(i).getId().equals(username)) {
@@ -120,17 +115,14 @@ public class fachada implements Serializable {
                 Usuario u = this.lst.devolver(i);
                 this.lst.eliminarUser(u);
                 Archivo.getInstancia().registrarUsuario(this.lst);
-                String mensaje = "usuario eliminado";
+                
 
-                return mensaje;
+                return "usuario eliminado";
             }
         }
-        // If the loop completes without finding the user
-        String mensajeOpuesto = "El usuario no existe";
-        System.out.println("");
+
         System.out.println("sout al final de baja usuario" + lst);
-        System.out.println("");
-        return mensajeOpuesto;
+        return "El usuario no existe";
     }
 
     public String historialContraseñas(String username) {

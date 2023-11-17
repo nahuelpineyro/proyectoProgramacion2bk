@@ -22,7 +22,7 @@ public class modificarContraseña extends javax.swing.JFrame {
     /**
      * Creates new form modificarContraseñaa
      */
-    public modificarContraseña() {
+    public modificarContraseña() {  // ccodigo para que la contraseña se lea con cada input
         initComponents();
         
         txtNewPass.getDocument().addDocumentListener(new DocumentListener() {
@@ -61,7 +61,6 @@ public class modificarContraseña extends javax.swing.JFrame {
     }
     
     fachada Facha = fachada.getInstanciaFachada();
-  //  LstCambiosPass LstPass = LstCambiosPass.getInstance();
         LstCambiosPass LstPass = new LstCambiosPass();
     
     
@@ -194,7 +193,7 @@ public class modificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMCActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        if(txtNewPass.getText().equals(txtNewPassConf.getText())){
+        if(txtNewPass.getText().equals(txtNewPassConf.getText())){  // revisa que la nueva pass que se compruebe bien
         
         txtMsjMC.setText(Facha.ModificarPass(txtOldPwdMC.getText(),txtNewPass.getText(), txtNomUsuarioMC.getText()));
         

@@ -31,8 +31,6 @@ public class Usuario implements Serializable{
         this.Pass = Pass;
     }
     
-    
-
     public String verCambios() {
         return lstCambios.toString();
     }

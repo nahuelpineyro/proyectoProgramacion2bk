@@ -129,18 +129,18 @@ public class fachada implements Serializable {
 
         for (int i = 0; i <= this.lst.cantidad(); i++) {
 
-            if (this.lst.devolver(i).getId().equals(username)) {
+            if (this.lst.devolver(i).getId().equals(username)) { // verifica al usuario
                 Usuario u = this.lst.devolver(i);
 
                 System.out.println("ingresa al primer if si el usuario coincide");
 
-                if (u.isHabil()) {
+                if (u.isHabil()) {                                      // revisa si el user esta habilitado a logearse
                     while (true){
                         u.getLstInicios().IntentoPlus();
                         
                         System.out.println("Cantidad de intentos "+u.getLstInicios().getIntentos());
-                        if (u.getLstInicios().getIntentos()<= 3){
-                            if (UltimaPass(username).equals(password)) {
+                        if (u.getLstInicios().getIntentos()<= 3){                   // cuenta los intentos
+                            if (UltimaPass(username).equals(password)) {        // verifica la contraseña
                                 u.getLstInicios().IntentoFin();
                                 System.out.println("ingresa al segundo if si la password coincide");
                                 System.out.println("\nlista al principio" + this.lst);
@@ -157,12 +157,14 @@ public class fachada implements Serializable {
                         }    
                     } // Cierre while
                 }else{
+                System.out.println("\nlista al principio" + this.lst);
                 return "El usuario esta blockeado";
                 }
             }else{
                 return "El usuario no se encontro";
             }
         } // cierre for
+        Archivo.getInstancia().registrarUsuario(lst); // Guarda todo en persis
         return "Error";
     }
     

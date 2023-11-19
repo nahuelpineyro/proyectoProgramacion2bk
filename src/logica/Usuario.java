@@ -37,7 +37,7 @@ public class Usuario implements Serializable{
     }
 
     public String verSesiones() {
-        return lstInicios.toString();
+        return lstInicios.toStringIni();
     }
 
     public void setLstCambios(LstCambiosPass pass){

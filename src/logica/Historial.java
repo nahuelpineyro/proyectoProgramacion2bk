@@ -37,13 +37,13 @@ public class Historial implements Serializable{
     public Pass getLast(){
         return LstPass.get(-1);
     }
-    
-    public String toStringlst(Pass P){
-        return ""+LstPass;
-    }
 
     
-//***************************************************************************    
+//***************************************************************************   
+    public String toStringIni(){
+        return LstInicios.toString();
+    }
+    
     @Override
     public String toString() {
         return LstPass.toString();

@@ -7,6 +7,7 @@ public class Usuario implements Serializable{
 
     private String id;
     private String Pass;
+    private boolean Habil;
     private LstInicioSesiones lstInicios;
     private LstCambiosPass lstCambios;
 
@@ -46,6 +47,14 @@ public class Usuario implements Serializable{
     public LstCambiosPass getLstCambios() {
         return lstCambios;
     }
+
+    public LstInicioSesiones getLstInicios() {
+        return lstInicios;
+    }
+
+    public void setLstInicios(LstInicioSesiones lstInicios) {
+        this.lstInicios = lstInicios;
+    }
     
     public String getUltima(){
         String Ultima = lstCambios.getLast().toString();
@@ -53,9 +62,19 @@ public class Usuario implements Serializable{
         return Ultima;
     }
 
+    public void setHabil(boolean Habil) {
+        this.Habil = Habil;
+    }
+
+    public boolean isHabil() {
+        return Habil;
+    }
+
+    
+    
     @Override
     public String toString() {
-        return "Usuario:" + id + " Pass: "+ Pass + "\nInicios de sesion: " + verSesiones()
+        return "\nUsuario:" + id + " | Pass: "+ Pass + " | Habilitado: " + Habil + "\nInicios de sesion: " + verSesiones()
                 + "\ncambios de pass: " + verCambios();
     }
 

@@ -1,41 +1,30 @@
 package logica;
 
+import logica.Usuario;
+
 public class LstInicioSesiones extends Historial {
-    private boolean habilitado;
+    //private boolean habilitado;
     private int intentos;
 
     public LstInicioSesiones() {
-        this.habilitado = true;
+        //this.habilitado = true;
         this.intentos = 0;
     }
     
-    public String Habil(String Entrada){  // Cuenta los intentos de login
-        
-        String test="Abc123";  // Solo testing, una vez posible el login cambiar por la contraseña "pass" ** "test" camibar en las lineas de abajo .
-        String Habil_Salida="";
-        
-        while (true){
-            this.intentos++;
-            
-        if (intentos<=3 && Entrada.equals(test)){
-            habilitado=true;
-            Habil_Salida="Inicio logrado";
-            this.intentos=0;
-        }
-        if (intentos<=3 && !Entrada.equals(test)){
-            habilitado=true;
-            Habil_Salida="No se inicio secion";
-            System.out.println(this.intentos);
-            
-        }
-        if (intentos>3){
-            habilitado=false;
-            Habil_Salida="Blockeado";
-            System.out.println(this.intentos);
-        }
-        return Habil_Salida;
+    
+    public void IntentoPlus (){
+        this.intentos++;
     }
+    public void IntentoFin(){
+        this.intentos = 0;
     }
+
+    public int getIntentos() {
+        return intentos;
+    }
+    
+    
+    
     
     
 //***************************************************************************    

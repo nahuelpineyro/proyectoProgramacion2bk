@@ -2,16 +2,15 @@ package Fachada;
 
 import logica.Usuario;
 import logica.LstUsuarios;
-import grafica.altaUsuario;
 import java.io.Serializable;
 import persistencia.Archivo;
-import logica.LstCambiosPass;
+import logica.Instante;
 import logica.Pass;
 
 public class fachada implements Serializable {
 
     private static fachada instancia;
-
+    private int Intentos;
     private LstUsuarios lst;
 
     public static fachada getInstanciaFachada() {
@@ -43,6 +42,7 @@ public class fachada implements Serializable {
             u.setId(username); // le asigno el nombre de usuario
             Pass p = new Pass(); // creamos el objeto contraseña para poder agregarle una pass al usuario
             //p.Gen();  
+            u.setHabil(true);
             u.setPass(p.Gen()); // llamamos al metodo gen para generar una contraseña
             u.getLstCambios().AñadirPass(p); // añadimos la contraseña al listado historial
             lst.agregar(u);
@@ -125,6 +125,47 @@ public class fachada implements Serializable {
         return "El usuario no existe";
     }
 
+    public String inicioSesion(String username, String password) {
+
+        for (int i = 0; i <= this.lst.cantidad(); i++) {
+
+            if (this.lst.devolver(i).getId().equals(username)) {
+                Usuario u = this.lst.devolver(i);
+
+                System.out.println("ingresa al primer if si el usuario coincide");
+
+                if (u.isHabil()) {
+                    while (true){
+                        u.getLstInicios().IntentoPlus();
+                        
+                        System.out.println("Cantidad de intentos "+u.getLstInicios().getIntentos());
+                        if (u.getLstInicios().getIntentos()<= 3){
+                            if (UltimaPass(username).equals(password)) {
+                                u.getLstInicios().IntentoFin();
+                                System.out.println("ingresa al segundo if si la password coincide");
+                                System.out.println("\nlista al principio" + this.lst);
+                                Instante I = new Instante();
+                                u.getLstInicios().AñadirInico(I);
+                                return "Login true";
+                            }else{
+                            return "Contraseña incorrecta | "+u.getLstInicios().getIntentos()+" de 3 intentos";
+                            }
+                        }else{
+                        System.out.println("\nlista al principio" + this.lst);
+                        u.setHabil(false);
+                        return "Login false";
+                        }    
+                    } // Cierre while
+                }else{
+                return "El usuario esta blockeado";
+                }
+            }else{
+                return "El usuario no se encontro";
+            }
+        } // cierre for
+        return "Error";
+    }
+    
     public String historialContraseñas(String username) {
         for (int i = 0; i <= this.lst.cantidad(); i++) {
 

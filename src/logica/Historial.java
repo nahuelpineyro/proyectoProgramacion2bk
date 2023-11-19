@@ -5,21 +5,25 @@ import java.util.ArrayList;
 
 public class Historial implements Serializable{
     private ArrayList<Pass> LstPass;
+    private ArrayList<Instante> LstInicios;
     
     
     public Historial(){
         LstPass = new ArrayList<>();
+        LstInicios = new ArrayList<>();
     }
 
-    // getters para la herencia
     
     public void AñadirPass (Pass P){
         LstPass.add(P);
         System.out.println("Se ejecuta AñadirPass (Historial)");
     }
-
     public void EliminarPass (Pass P){
         LstPass.remove(P);
+    }
+    
+    public void AñadirInico (Instante I){
+        LstInicios.add(I);
     }
     
     public int TamañoLstPass(){

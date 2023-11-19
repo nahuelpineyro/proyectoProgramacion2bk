@@ -40,7 +40,6 @@ public class fachada implements Serializable {
             Usuario u = new Usuario(); // generamos el objeto usuario
             u.setId(username); // le asigno el nombre de usuario
             Pass p = new Pass(); // creamos el objeto contraseña para poder agregarle una pass al usuario
-            //p.Gen();  
             u.setHabil(true);
             u.setPass(p.Gen()); // llamamos al metodo gen para generar una contraseña
             u.getLstCambios().AñadirPass(p); // añadimos la contraseña al listado historial
@@ -86,6 +85,8 @@ public class fachada implements Serializable {
                         u.setPass(nuevaPass);  // setteamos la contraseña nueva al user
                         Pass p = new Pass();       // creamos un nuevo objeto pass para guardar en el historial 
                         p.setContrasenia(nuevaPass);
+                        u.setHabil(true);
+                        u.getLstInicios().IntentoFin();
                         u.getLstCambios().AñadirPass(p); 
                         System.out.println("Test Cambio Pass\n"+lst);
                         
@@ -145,18 +146,22 @@ public class fachada implements Serializable {
                                 System.out.println("\nlista al principio" + this.lst);
                                 Instante I = new Instante();
                                 u.getLstInicios().AñadirInico(I);
+                                Archivo.getInstancia().registrarUsuario(this.lst);
                                 return "Login true";
                             }else{
+                            Archivo.getInstancia().registrarUsuario(this.lst);
                             return "Contraseña incorrecta | "+u.getLstInicios().getIntentos()+" de 3 intentos";
                             }
                         }else{
                         System.out.println("\nlista al principio" + this.lst);
                         u.setHabil(false);
+                        Archivo.getInstancia().registrarUsuario(this.lst);
                         return "Login false";
                         }    
                     } // Cierre while
                 }else{
                 System.out.println("\nlista al principio" + this.lst);
+                Archivo.getInstancia().registrarUsuario(this.lst);
                 return "El usuario esta blockeado";
                 }
             }else{

@@ -16,7 +16,6 @@ public class Historial implements Serializable{
     
     public void AñadirPass (Pass P){
         LstPass.add(P);
-        System.out.println("Se ejecuta AñadirPass (Historial)");
     }
     public void EliminarPass (Pass P){
         LstPass.remove(P);

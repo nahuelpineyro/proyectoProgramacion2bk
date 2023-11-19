@@ -10,7 +10,6 @@ import logica.Pass;
 public class fachada implements Serializable {
 
     private static fachada instancia;
-    private int Intentos;
     private LstUsuarios lst;
 
     public static fachada getInstanciaFachada() {
@@ -125,8 +124,8 @@ public class fachada implements Serializable {
         return "El usuario no existe";
     }
 
-    public String inicioSesion(String username, String password) {
-
+    public String inicioSesion(String username, String password) {  // Login
+        
         for (int i = 0; i <= this.lst.cantidad(); i++) {
 
             if (this.lst.devolver(i).getId().equals(username)) { // verifica al usuario
@@ -161,10 +160,9 @@ public class fachada implements Serializable {
                 return "El usuario esta blockeado";
                 }
             }else{
-                return "El usuario no se encontro";
             }
         } // cierre for
-        Archivo.getInstancia().registrarUsuario(lst); // Guarda todo en persis
+        Archivo.getInstancia().registrarUsuario(this.lst); // Guarda todo en persis
         return "Error";
     }
     

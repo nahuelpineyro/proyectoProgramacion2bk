@@ -182,6 +182,7 @@ public class modificarContraseña extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMCActionPerformed
@@ -193,12 +194,17 @@ public class modificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverMCActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        if(txtNewPass.getText().equals(txtNewPassConf.getText())){  // revisa que la nueva pass que se compruebe bien
         
-        txtMsjMC.setText(Facha.ModificarPass(txtOldPwdMC.getText(),txtNewPass.getText(), txtNomUsuarioMC.getText()));
+        if (!txtNivelContraseña.getText().equals("Debil")){
         
+            if(txtNewPass.getText().equals(txtNewPassConf.getText())){  // revisa que la nueva pass que se compruebe bien
+            txtMsjMC.setText(Facha.ModificarPass(txtOldPwdMC.getText(),txtNewPass.getText(), txtNomUsuarioMC.getText()));
+
+            }else{
+                JOptionPane.showMessageDialog(null, "Revise las nuevas contraseñas");
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "Revise las nuevas contraseñas");
+            JOptionPane.showMessageDialog(null, "Contraseña muy debil, intente una mas dificil");
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 

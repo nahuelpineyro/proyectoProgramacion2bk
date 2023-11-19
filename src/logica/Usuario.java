@@ -74,7 +74,7 @@ public class Usuario implements Serializable{
     
     @Override
     public String toString() {
-        return "\nUsuario:" + id + " | Pass: "+ Pass + " | Habilitado: " + Habil + "\nInicios de sesion: " + verSesiones()
+        return "\nUsuario: " + id + " | Pass: "+ Pass + " | Habilitado: " + Habil + "\nInicios de sesion: " + verSesiones()
                 + "\ncambios de pass: " + verCambios();
     }
 

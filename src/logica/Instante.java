@@ -14,7 +14,7 @@ public class Instante implements Serializable{
     
     @Override
     public String toString() {
-        return fecha + " - " + tiempo;
+        return "\n"+fecha + " - " + tiempo;
     }
 
     

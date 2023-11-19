@@ -148,6 +148,7 @@ public class historial extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtHistoriallInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHistoriallInputActionPerformed

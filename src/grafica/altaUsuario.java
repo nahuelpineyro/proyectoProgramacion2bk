@@ -34,9 +34,9 @@ public class altaUsuario extends javax.swing.JFrame {
         btnVolverAlta = new javax.swing.JButton();
         txtNombreAlta = new javax.swing.JTextField();
         txtApellidoAlta = new javax.swing.JTextField();
-        txtContraseñaAlta = new javax.swing.JLabel();
         txtNombreUsuarioAlta = new javax.swing.JLabel();
         txtusername = new javax.swing.JLabel();
+        txtContraseñaAlta = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +65,8 @@ public class altaUsuario extends javax.swing.JFrame {
 
         txtusername.setText("Su Nombre de usuario");
 
+        txtContraseñaAlta.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,9 +89,9 @@ public class altaUsuario extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombreUsuarioAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNombreAlta)
+                                .addComponent(txtNombreAlta, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                                 .addComponent(txtApellidoAlta)
-                                .addComponent(txtContraseñaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtContraseñaAlta, javax.swing.GroupLayout.Alignment.TRAILING)))))
                 .addGap(44, 44, 44))
             .addGroup(layout.createSequentialGroup()
                 .addGap(151, 151, 151)
@@ -112,9 +114,9 @@ public class altaUsuario extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(txtApellidoAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtContraseñaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtContraseñaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(txtNombreUsuarioAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtusername))
@@ -122,7 +124,7 @@ public class altaUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIngresar)
                     .addComponent(btnVolverAlta))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -191,7 +193,7 @@ public class altaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtApellidoAlta;
-    private javax.swing.JLabel txtContraseñaAlta;
+    private javax.swing.JTextField txtContraseñaAlta;
     private javax.swing.JTextField txtNombreAlta;
     private javax.swing.JLabel txtNombreUsuarioAlta;
     private javax.swing.JLabel txtusername;

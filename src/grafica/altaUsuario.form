@@ -43,9 +43,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtNombreUsuarioAlta" min="-2" pref="218" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtNombreAlta" max="32767" attributes="0"/>
+                              <Component id="txtNombreAlta" pref="218" max="32767" attributes="0"/>
                               <Component id="txtApellidoAlta" max="32767" attributes="0"/>
-                              <Component id="txtContraseñaAlta" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="txtContraseñaAlta" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -77,9 +77,9 @@
                           <Component id="txtApellidoAlta" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtContraseñaAlta" min="-2" pref="16" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtContraseñaAlta" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="txtNombreUsuarioAlta" min="-2" pref="16" max="-2" attributes="0"/>
@@ -91,7 +91,7 @@
                   <Component id="btnIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnVolverAlta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -140,13 +140,16 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtApellidoAlta">
     </Component>
-    <Component class="javax.swing.JLabel" name="txtContrase&#xf1;aAlta">
-    </Component>
     <Component class="javax.swing.JLabel" name="txtNombreUsuarioAlta">
     </Component>
     <Component class="javax.swing.JLabel" name="txtusername">
       <Properties>
         <Property name="text" type="java.lang.String" value="Su Nombre de usuario"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtContrase&#xf1;aAlta">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>

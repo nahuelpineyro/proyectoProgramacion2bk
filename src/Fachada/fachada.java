@@ -34,7 +34,6 @@ public class fachada implements Serializable {
         String lastname = apellido;
         String username = name.charAt(0) + lastname;
 
-        System.out.println(lst);
         if (comprobacion(username)) {
 
             Usuario u = new Usuario(); // generamos el objeto usuario
@@ -46,7 +45,6 @@ public class fachada implements Serializable {
             lst.agregar(u);
             Archivo.getInstancia().registrarUsuario(lst);
 
-            System.out.println("La lista\n" + lst);
 
             return username;
         } else {
@@ -87,8 +85,7 @@ public class fachada implements Serializable {
                         p.setContrasenia(nuevaPass);
                         u.setHabil(true);
                         u.getLstInicios().IntentoFin();
-                        u.getLstCambios().AñadirPass(p); 
-                        System.out.println("Test Cambio Pass\n"+lst);
+                        u.getLstCambios().AñadirPass(p);
                         
                         Archivo.getInstancia().registrarUsuario(lst);
                         
@@ -107,7 +104,6 @@ public class fachada implements Serializable {
     
 
     public String bajaUsuario(String username) {
-        System.out.println("\nlista al principio" + this.lst);
         for (int i = 0; i <= this.lst.cantidad(); i++) {
 
             if (this.lst.devolver(i).getId().equals(username)) {
@@ -121,7 +117,6 @@ public class fachada implements Serializable {
             }
         }
 
-        System.out.println("sout al final de baja usuario" + lst);
         return "El usuario no existe";
     }
 
@@ -132,18 +127,14 @@ public class fachada implements Serializable {
             if (this.lst.devolver(i).getId().equals(username)) { // verifica al usuario
                 Usuario u = this.lst.devolver(i);
 
-                System.out.println("ingresa al primer if si el usuario coincide");
 
                 if (u.isHabil()) {                                      // revisa si el user esta habilitado a logearse
                     while (true){
                         u.getLstInicios().IntentoPlus();
                         
-                        System.out.println("Cantidad de intentos "+u.getLstInicios().getIntentos());
                         if (u.getLstInicios().getIntentos()<= 3){                   // cuenta los intentos
                             if (UltimaPass(username).equals(password)) {        // verifica la contraseña
                                 u.getLstInicios().IntentoFin();
-                                System.out.println("ingresa al segundo if si la password coincide");
-                                System.out.println("\nlista al principio" + this.lst);
                                 Instante I = new Instante();
                                 u.getLstInicios().AñadirInico(I);
                                 Archivo.getInstancia().registrarUsuario(this.lst);
@@ -153,14 +144,12 @@ public class fachada implements Serializable {
                             return "Contraseña incorrecta | "+u.getLstInicios().getIntentos()+" de 3 intentos";
                             }
                         }else{
-                        System.out.println("\nlista al principio" + this.lst);
                         u.setHabil(false);
                         Archivo.getInstancia().registrarUsuario(this.lst);
                         return "Login false";
                         }    
                     } // Cierre while
                 }else{
-                System.out.println("\nlista al principio" + this.lst);
                 Archivo.getInstancia().registrarUsuario(this.lst);
                 return "El usuario esta blockeado";
                 }
